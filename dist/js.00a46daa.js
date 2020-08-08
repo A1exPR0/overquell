@@ -19998,19 +19998,19 @@ var PageLoader = /*#__PURE__*/function () {
       // console.log(id);
       //hide menu
       _gsap.default.to(".top_nav", 1, {
-        yPercent: -100
+        yPercent: -120
       });
 
       _gsap.default.to(".header_logo", 1, {
-        yPercent: -100
+        yPercent: -120
       });
 
       _gsap.default.to(".bottom_nav", 1, {
-        yPercent: 100
+        yPercent: 120
       });
 
       _gsap.default.to(".social_nav", 1, {
-        yPercent: 100
+        yPercent: 120
       }); //hide page
 
 
@@ -20029,7 +20029,7 @@ var PageLoader = /*#__PURE__*/function () {
       });
 
       _gsap.default.from(".close_btn", 1, {
-        yPercent: -100
+        yPercent: -120
       });
 
       draw.click(function () {

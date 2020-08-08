@@ -20,16 +20,16 @@ class PageLoader {
         // console.log(id);
         //hide menu
         gsap.to(".top_nav", 1, {
-            yPercent: -100
+            yPercent: -120
         });
         gsap.to(".header_logo", 1, {
-            yPercent: -100
+            yPercent: -120
         });
         gsap.to(".bottom_nav", 1, {
-            yPercent: 100
+            yPercent: 120
         });
         gsap.to(".social_nav", 1, {
-            yPercent: 100
+            yPercent: 120
         });
         //hide page
         gsap.to("section", 1, {
@@ -46,7 +46,7 @@ class PageLoader {
             color: '#FFF',
         });
         gsap.from(".close_btn", 1, {
-            yPercent: -100
+            yPercent: -120
         });
         draw.click(() => {
             this.close_video();
