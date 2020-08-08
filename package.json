@@ -1,0 +1,22 @@
+{
+  "name": "overquell",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@dogstudio/highway": "^2.2.1",
+    "@svgdotjs/svg.filter.js": "^3.0.7",
+    "@svgdotjs/svg.js": "^3.0.16",
+    "@vimeo/player": "^2.12.2",
+    "gsap": "^3.4.2"
+  },
+  "devDependencies": {
+    "sass": "^1.26.10"
+  }
+}
