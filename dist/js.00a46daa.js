@@ -20140,7 +20140,22 @@ var PageLoader = /*#__PURE__*/function () {
       }
 
       var tl = new _gsap.TimelineLite(); // console.log("LOAD");
-      // GALERY
+      //Contacts
+      //open contacts
+
+      var open_cont = document.querySelector("#contacts_menu");
+      open_cont.addEventListener("click", function () {
+        _gsap.default.to(".contacts", 0.5, {
+          yPercent: -110
+        });
+      }); //close contacts
+
+      var close_cont = document.querySelector("#contact_close");
+      close_cont.addEventListener("click", function () {
+        _gsap.default.to(".contacts", 0.5, {
+          yPercent: 0
+        });
+      }); // GALERY
 
       if (pathname === "/gallery.html") {
         // console.log("this is gallery - END");
@@ -20486,8 +20501,17 @@ H.on('NAVIGATE_END', function (_ref2) {
 H.on('NAVIGATE_IN', function (_ref3) {
   var location = _ref3.location;
   PL.hidePage(location.pathname);
-});
-HTML;
+}); //contacts
+
+function closeContacts() {
+  var close_cont = document.querySelector("#contact_close");
+  close_cont.addEventListener("click", function () {
+    _gsapCore.default.to(".contacts", 0.5, {
+      yPercent: -110
+    });
+  });
+  return true;
+}
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js","./Transitions/Fade":"js/Transitions/Fade.js","./pageLoader":"js/pageLoader.js","gsap/gsap-core":"node_modules/gsap/gsap-core.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -20516,7 +20540,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65105" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "56428" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

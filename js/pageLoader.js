@@ -152,6 +152,26 @@ class PageLoader {
         }
         const tl = new TimelineLite();
         // console.log("LOAD");
+
+        //Contacts
+
+        //open contacts
+        var open_cont = document.querySelector("#contacts_menu");
+         open_cont.addEventListener("click", () => {
+                     gsap.to(".contacts", 0.5, {
+                         yPercent: -110
+                     });
+               });
+
+        //close contacts
+        var close_cont = document.querySelector("#contact_close");
+        close_cont.addEventListener("click",()=>{
+            gsap.to(".contacts",0.5,{
+                yPercent:0
+            });
+        });
+
+
         // GALERY
         if (pathname === "/gallery.html") {
             // console.log("this is gallery - END");

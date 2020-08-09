@@ -2,7 +2,9 @@ import Highway from "@dogstudio/highway"
 import Fade from "./Transitions/Fade"
 import PageLoader from "./pageLoader";
 import gsap from "gsap/gsap-core";
-import {SVG} from "@svgdotjs/svg.js";
+import {
+    SVG
+} from "@svgdotjs/svg.js";
 
 
 const H = new Highway.Core({
@@ -22,7 +24,7 @@ const PL = new PageLoader;
 window.onload = function () {
     PL.loadPage(document.location.pathname);
 
-    
+
 }
 // Listen the `NAVIGATE_IN` event
 // This event is sent everytime a `data-router-view` is added to the DOM Tree
@@ -54,4 +56,15 @@ H.on('NAVIGATE_IN', ({
 }) => {
     PL.hidePage(location.pathname);
 });
-HTML
+
+//contacts
+function closeContacts() {
+    var close_cont = document.querySelector("#contact_close");
+    close_cont.addEventListener("click", () => {
+        gsap.to(".contacts", 0.5, {
+            yPercent: -110
+        });
+    });
+
+    return true;
+}

@@ -185,6 +185,61 @@ main {
     }
 }
 
+.contacts {
+    position: absolute;
+    z-index: 15;
+    width: 100vw;
+    height: 15vw;
+    bottom: 0;
+    background-color: $slightly_black;
+    display: flex;
+    transform: translate(0,110%);
+
+    svg {
+        margin: 10px;
+        width: 30px;
+        height: 30px;
+        position: absolute;
+        top: 0;
+        right: 0;
+        stroke-width: 3px;
+        stroke: $slightly_white;
+    }
+
+    h3 {
+        color: $slightly_white;
+        font-size: 3rem;
+        text-transform: uppercase;
+        margin: auto 5vw;
+        align-self: center;
+    }
+
+    a {
+        display: flex;
+        text-decoration: none;
+        color: $slightly_white;
+            margin-left: 5vw;
+
+        p {
+            margin-left: 1vw;
+            font-size: 1.5rem;
+            font-weight: 200;
+            line-height: 2rem;
+            border-bottom: 1px $slightly_white solid;
+            height: 2rem;
+            align-self: center;
+            vertical-align: top;
+        
+        }
+
+        img {
+            width: auto;
+            height: 3rem;
+            align-self: center;
+        }
+    }
+}
+
 .cover {
     width: 100%;
     height: 100%;
@@ -229,7 +284,7 @@ main {
     }
 
     .under_logo {
-        color: black;
+        color:$slightly_black;
         font-size: 6vw;
         transform: translateX(-5%);
         clip-path: inset(0px 0px 0px 5%);
@@ -544,15 +599,16 @@ section .work {
         width: 100%;
         height: 100%;
         overflow: hidden;
-        &::after{
+
+        &::after {
             position: absolute;
             z-index: 2;
-            width:100%;
-            height:100%;
+            width: 100%;
+            height: 100%;
             display: block;
-            content:"";
+            content: "";
             background-color: rgba($color: #000000, $alpha: 0.4);
-            transition:0.5s;
+            transition: 0.5s;
         }
 
         img {
@@ -593,10 +649,11 @@ section .work {
                 transform: scale(1.3);
                 transition: 0.5s;
             }
-             &::after {
-                transition:0.5s;
-                 background-color: rgba($color: #000000, $alpha: 0.1);
-             }
+
+            &::after {
+                transition: 0.5s;
+                background-color: rgba($color: #000000, $alpha: 0.1);
+            }
         }
     }
 }
@@ -678,10 +735,10 @@ section .work {
             grid-auto-rows: 40%;
             // grid-auto-columns:100px; 
             grid-auto-flow: row;
-    
+
             img {
                 width: 100%;
-                height:100%;
+                height: 100%;
                 object-fit: cover;
             }
 
@@ -696,7 +753,7 @@ section .work {
     .credits {
         display: none;
         width: 100%;
-        padding:2vw 0 0 1.6vw;
+        padding: 2vw 0 0 1.6vw;
         overflow: scroll;
         height: 80%;
 
