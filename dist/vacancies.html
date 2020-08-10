@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OverQuell | Home</title>
-<link rel="stylesheet" href="/style.e0c02e61.css">
+    <link rel="stylesheet" href="/style.e0c02e61.css">
 </head>
+
 <body>
     <div class="header_logo">
         <a href="http://localhost:1234/">
@@ -15,57 +17,78 @@
             </svg>
         </a>
     </div>
-<nav class="top_nav"> 
-    <ul>
-        <li><a href="/index.html" class="active">Home</a></li>
-        <li><a href="/gallery.html">Music Video</a></li>
-        <li><a href="/commercial.html">Commercial</a></li>
-        <li><a href="/live.html">Concert video</a></li> 
-    </ul>
-</nav>
+    <nav class="top_nav">
+        <ul>
+            <li><a href="/index.html" class="active">Home</a></li>
+            <li><a href="/gallery.html">Music Video</a></li>
+            <li><a href="/commercial.html">Commercial</a></li>
+            <li><a href="/live.html">Concert video</a></li>
+        </ul>
+    </nav>
 
 
-<main data-router-wrapper="">
-    <section data-router-view="home" class="home">
-    <div class="cover">
-        <img src="/bg_vacancies.7cb39253.jpg" alt="" srcset="">
+    <main data-router-wrapper="">
+        <section data-router-view="vacancies" class="vacancies">
+            <div class="vacancies_wrapper">
+                <img src="/about_bg.a35d83c1.svg" alt="">
+                <h2>Мы ищем таланты</h2>
+                <p>Если ты талантлив и хочешь работать над интересными проектами, то заполни форму ниже</p>
+                <form action="#" id="vacancies_form">
+                    <div>
+                        <div class="wrapper"><label for="name">Имя</label>
+                            <input type="text" name="name" id="form_name">
+                        </div>
+                        <div class="wrapper"><label for="email">E-mail</label>
+                            <input type="text" name="email" id="form_email">
+                        </div>
+                        <div class="wrapper"><label for="link">Ссылка на портфолио</label>
+                            <input type="text" name="link" id="form_link">
+                        </div>
+                        <input type="submit" value="Отправить">
+                    </div>
+                    <div class="area_wrapper">
+                        <label for="about">Расскажи о себе</label>
+                        <textarea name="about" id="form_about" cols="30" rows="8"></textarea>
+                    </div>
+                </form>
+            </div>
+            <!-- <h1 class="page_name">Vacancies</h1> -->
+        </section>
+    </main>
+
+
+    <div class="contacts">
+        <h3>contact us</h3>
+        <a href="mailto:info@overquell.com"><img src="/email-84.3286aab8.svg" alt="" srcset="">
+            <p>info@overquell.com</p>
+        </a>
+        <div id="contact_close">
+            <svg data-id="439966064" data-name="SOME VIDEO HEADLINE" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
+                <line x1="10" y1="10" x2="40" y2="40"></line>
+                <line x1="10" y1="40" x2="40" y2="10"></line>
+            </svg>
+        </div>
     </div>
- <h1 class="page_name">Vacancies</h1>
-</section>
-</main>
-
-
-<div class="contacts">
-    <h3>contact us</h3>
-    <a href="mailto:info@overquell.com"><img src="/email-84.3286aab8.svg" alt="" srcset="">
-        <p>info@overquell.com</p>
-    </a>
-    <div id="contact_close">
-        <svg data-id="439966064" data-name="SOME VIDEO HEADLINE" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 50 50" xml:space="preserve">
-            <line x1="10" y1="10" x2="40" y2="40"></line>
-            <line x1="10" y1="40" x2="40" y2="10"></line>
-        </svg>
-    </div>
-</div>
-<nav class="bottom_nav">
-    <ul>
-        <li><a href="/about.html">About</a></li>
-        <li><a href="/vacancies.html">Vacancies</a></li>
-        <li><a href="#" id="contacts_menu">Contacts</a></li>
-    </ul>
-</nav>
-<nav class="social_nav">
-    <ul>
-        <li><a href="https://vk.com" target="_blank"><img src="/vk-brands.20e9ba24.png" alt="" srcset=""> </a>
-        </li>
-        <li><a href="https://instagram.com" target="_blank"><img src="/instagram-brands.47e9f0d8.png" alt="" srcset=""> </a>
-        </li>
-        <li><a href="https://vimeo.com" target="_blank"><img src="/vimeo-v-brands.865aa497.png" alt="" srcset=""></a>
-        </li>
-        <li><a href="https://youtube.com" target="_blank"><img src="/youtube-brands.843dad32.png" alt="" srcset=""></a>
-        </li>
-    </ul>
-</nav>
-<script src="/js.00a46daa.js"></script>
+    <nav class="bottom_nav">
+        <ul>
+            <li><a href="/about.html">About</a></li>
+            <li><a href="/vacancies.html">Vacancies</a></li>
+            <li><a href="#" id="contacts_menu">Contacts</a></li>
+        </ul>
+    </nav>
+    <nav class="social_nav">
+        <ul>
+            <li><a href="https://vk.com" target="_blank"><img src="/vk-brands.20e9ba24.png" alt="" srcset=""> </a>
+            </li>
+            <li><a href="https://instagram.com" target="_blank"><img src="/instagram-brands.47e9f0d8.png" alt="" srcset=""> </a>
+            </li>
+            <li><a href="https://vimeo.com" target="_blank"><img src="/vimeo-v-brands.865aa497.png" alt="" srcset=""></a>
+            </li>
+            <li><a href="https://youtube.com" target="_blank"><img src="/youtube-brands.843dad32.png" alt="" srcset=""></a>
+            </li>
+        </ul>
+    </nav>
+    <script src="/js.00a46daa.js"></script>
 </body>
+
 </html>

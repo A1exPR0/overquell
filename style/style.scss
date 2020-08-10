@@ -27,7 +27,7 @@ nav {
     ul {
         list-style: none;
         display: flex;
-        justify-items:stretch;
+        justify-items: stretch;
         padding: 1vw 1.4vw;
         align-items: center;
 
@@ -93,14 +93,16 @@ nav {
 .social_nav {
     bottom: 0;
     left: 0;
-    margin-bottom:0.5vw;
-        img {
-            width: 2vw;
-            height: auto;
-            &:hover{
-                transform: scale(1.3);
-            }
+    margin-bottom: 0.5vw;
+
+    img {
+        width: 2vw;
+        height: auto;
+
+        &:hover {
+            transform: scale(1.3);
         }
+    }
 }
 
 @keyframes grain {
@@ -204,7 +206,7 @@ main {
     bottom: 0;
     background-color: $slightly_black;
     display: flex;
-    transform: translate(0,110%);
+    transform: translate(0, 110%);
 
     svg {
         margin: 10px;
@@ -229,7 +231,7 @@ main {
         display: flex;
         text-decoration: none;
         color: $slightly_white;
-            margin-left: 5vw;
+        margin-left: 5vw;
 
         p {
             margin-left: 1vw;
@@ -240,7 +242,7 @@ main {
             height: 2rem;
             align-self: center;
             vertical-align: top;
-        
+
         }
 
         img {
@@ -295,7 +297,7 @@ main {
     }
 
     .under_logo {
-        color:$slightly_black;
+        color: $slightly_black;
         font-size: 6vw;
         transform: translateX(-5%);
         clip-path: inset(0px 0px 0px 5%);
@@ -794,4 +796,134 @@ section .work {
             display: block;
         }
     }
+}
+
+//VACANCIES
+
+.vacancies_wrapper {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    z-index: 5;
+    position: relative;
+    top: 0;
+    left: 0;
+    justify-content: center;
+
+    img {
+        opacity: 0.1;
+        height: 60vh;
+        position: absolute;
+        top: 20vh;
+        left: 0;
+    }
+
+    h2 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        margin-top: 15vh;
+
+    }
+
+    p {
+        font-size: 1rem;
+        text-transform: uppercase;
+        margin: 3vh auto 0 auto;
+        width: 35vw;
+        line-height: 2rem;
+        opacity: 0.6;
+    }
+
+    #vacancies_form {
+        display: flex;
+        position: relative;
+        width: 65vw;
+        margin: 2vh auto 0 auto;
+        justify-content: space-around;
+
+        .wrapper {
+            display: flex;
+            flex-direction: column;
+            margin: 1vw;
+            width: 100%;
+
+            label {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        .area_wrapper {
+            display: flex;
+            flex-direction: column;
+            margin: 1vw;
+            width: 50%;
+
+            label {
+                width: 100%;
+                text-align: left;
+            }
+        }
+
+        input[type=submit] {
+            margin-left: 1vw;
+            background-color: transparent;
+            color: $slightly_white;
+            border: 0.01vw $slightly_white solid;
+            padding: 1vw 2.4vw;
+            width: 70%;
+            text-transform: uppercase;
+            font-size: 1rem;
+            transition: 0.2s;
+
+            //  justify-self:flex-start;
+            &:hover {
+                background-color: $slightly_white;
+                color: black;
+                transition: 0.2s;
+                cursor: pointer;
+            }
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+        }
+
+        input[type=text] {
+            background-color: transparent;
+            border: 0.01vw $slightly_white solid;
+            width: 100%;
+            margin: 1vh 0;
+            height: 2.5rem;
+            color: $slightly_white;
+            font-size: 1.1rem;
+            padding: 10px;
+            line-height: 1.2rem;
+        }
+        input:focus, textarea:focus{
+            outline: $yellow auto 1px;
+            outline-offset: 1px;
+        }
+        textarea {
+            background-color: transparent;
+            border: 0.01vw $slightly_white solid;
+            width: 100%;
+            margin: 1vh 0;
+            height: 100%;
+            color: $slightly_white;
+            font-size: 1.1rem;
+            padding: 10px;
+            line-height: 1.2rem;
+
+        }
+
+        label {
+            text-transform: uppercase;
+            opacity: 0.6;
+
+        }
+    }
+
 }

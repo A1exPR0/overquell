@@ -664,4 +664,114 @@ section .work:hover .work_cover::after {
   display: block;
 }
 
+.vacancies_wrapper {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  z-index: 5;
+  position: relative;
+  top: 0;
+  left: 0;
+  justify-content: center;
+}
+.vacancies_wrapper img {
+  opacity: 0.1;
+  height: 60vh;
+  position: absolute;
+  top: 20vh;
+  left: 0;
+}
+.vacancies_wrapper h2 {
+  font-size: 2.5rem;
+  text-transform: uppercase;
+  margin-top: 15vh;
+}
+.vacancies_wrapper p {
+  font-size: 1rem;
+  text-transform: uppercase;
+  margin: 3vh auto 0 auto;
+  width: 35vw;
+  line-height: 2rem;
+  opacity: 0.6;
+}
+.vacancies_wrapper #vacancies_form {
+  display: flex;
+  position: relative;
+  width: 65vw;
+  margin: 2vh auto 0 auto;
+  justify-content: space-around;
+}
+.vacancies_wrapper #vacancies_form .wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+  width: 100%;
+}
+.vacancies_wrapper #vacancies_form .wrapper label {
+  width: 100%;
+  text-align: left;
+}
+.vacancies_wrapper #vacancies_form .area_wrapper {
+  display: flex;
+  flex-direction: column;
+  margin: 1vw;
+  width: 50%;
+}
+.vacancies_wrapper #vacancies_form .area_wrapper label {
+  width: 100%;
+  text-align: left;
+}
+.vacancies_wrapper #vacancies_form input[type=submit] {
+  margin-left: 1vw;
+  background-color: transparent;
+  color: #EEEEEE;
+  border: 0.01vw #EEEEEE solid;
+  padding: 1vw 2.4vw;
+  width: 70%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  transition: 0.2s;
+}
+.vacancies_wrapper #vacancies_form input[type=submit]:hover {
+  background-color: #EEEEEE;
+  color: black;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.vacancies_wrapper #vacancies_form div {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+.vacancies_wrapper #vacancies_form input[type=text] {
+  background-color: transparent;
+  border: 0.01vw #EEEEEE solid;
+  width: 100%;
+  margin: 1vh 0;
+  height: 2.5rem;
+  color: #EEEEEE;
+  font-size: 1.1rem;
+  padding: 10px;
+  line-height: 1.2rem;
+}
+.vacancies_wrapper #vacancies_form input:focus, .vacancies_wrapper #vacancies_form textarea:focus {
+  outline: #F8BA01 auto 1px;
+  outline-offset: 1px;
+}
+.vacancies_wrapper #vacancies_form textarea {
+  background-color: transparent;
+  border: 0.01vw #EEEEEE solid;
+  width: 100%;
+  margin: 1vh 0;
+  height: 100%;
+  color: #EEEEEE;
+  font-size: 1.1rem;
+  padding: 10px;
+  line-height: 1.2rem;
+}
+.vacancies_wrapper #vacancies_form label {
+  text-transform: uppercase;
+  opacity: 0.6;
+}
+
 /*# sourceMappingURL=/style.e0c02e61.css.map */
