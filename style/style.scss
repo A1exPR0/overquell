@@ -984,11 +984,32 @@ section .work {
     .team_member{
         position: absolute;
         z-index: 5;
+        text-transform: uppercase;
+        h2{
+            clip-path: inset(0px 0px 0px 6%);
+            position: relative;
+            left:-6%;
+            font-size: 3rem;
+
+        }
+        h4{
+            font-size: 1.5rem;
+            font-weight: 200;
+        }
+    
     }
 
     #pavel{
-        top:0;
-        left:10%;
+        top:60%;
+        left:80%;
+    }
+    #gregory{
+        top:40%;
+        left:20%;
+    }
+    #vladimir{
+        top:70%;
+        left:45%;
     }
 }
 
