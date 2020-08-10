@@ -27,7 +27,21 @@
 
 <main data-router-wrapper="">
     <section data-router-view="about" class="about">
-        <h1 class="page_name">About</h1>
+  <div class="cover_container">
+     <img src="/bg_about.e22fd98f.jpg" alt="" srcset=""> 
+  </div>
+  <div class="team_member" id="gregory">
+    <h2>Gregory</h2>
+    <h4>DIRECTOR</h4>
+  </div>
+  <div class="team_member" id="mikhail">
+    <h2>Mikhail</h2>
+    <h4>DIRECTOR</h4>
+  </div>
+  <div class="team_member" id="pavel">
+    <h2>Pavel</h2>
+    <h4>DIRECTOR</h4>
+  </div>
 
 </section>
 </main>
@@ -64,6 +78,13 @@
         </li>
     </ul>
 </nav>
+<svg id="yellow_filter">
+<filter id="yellow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+	<feFlood flood-color="#F8BA01" flood-opacity="1" x="0%" y="0%" width="100%" height="100%" result="flood1"></feFlood>
+	<feBlend mode="luminosity" x="0%" y="0%" width="100%" height="100%" in="SourceGraphic" in2="flood1" result="blend"></feBlend>
+	<feComposite in="blend" in2="SourceAlpha" operator="in" x="0%" y="0%" width="100%" height="100%" result="composite1"></feComposite>
+</filter>
+</svg>
 <script src="/js.00a46daa.js"></script>
 </body>
 </html>

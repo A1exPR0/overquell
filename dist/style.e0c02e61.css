@@ -1,3 +1,148 @@
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-Bold.14e11ece.eot');
+    src: local('Gotham Pro Bold'), local('GothamPro-Bold'),
+        url('/GothamPro-Bold.14e11ece.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-Bold.a4428282.woff2') format('woff2'),
+        url('/GothamPro-Bold.fb3349e9.woff') format('woff'),
+        url('/GothamPro-Bold.e036e46c.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-Light.43673d97.eot');
+    src: local('Gotham Pro Light'), local('GothamPro-Light'),
+        url('/GothamPro-Light.43673d97.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-Light.b04db0cf.woff2') format('woff2'),
+        url('/GothamPro-Light.404c48c9.woff') format('woff'),
+        url('/GothamPro-Light.71258072.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-Black.49d4a4b4.eot');
+    src: local('Gotham Pro Black'), local('GothamPro-Black'),
+        url('/GothamPro-Black.49d4a4b4.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-Black.175d613f.woff2') format('woff2'),
+        url('/GothamPro-Black.6cc277be.woff') format('woff'),
+        url('/GothamPro-Black.9f2e017b.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-Italic.e51f045a.eot');
+    src: local('Gotham Pro Italic'), local('GothamPro-Italic'),
+        url('/GothamPro-Italic.e51f045a.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-Italic.82087a4e.woff2') format('woff2'),
+        url('/GothamPro-Italic.292314d7.woff') format('woff'),
+        url('/GothamPro-Italic.73cd2a73.ttf') format('truetype');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham Pro Narrow';
+    src: url('/GothamProNarrow-Bold.02bc055b.eot');
+    src: local('Gotham Pro Narrow Bold'), local('GothamProNarrow-Bold'),
+        url('/GothamProNarrow-Bold.02bc055b.eot?#iefix') format('embedded-opentype'),
+        url('/GothamProNarrow-Bold.8020c97c.woff2') format('woff2'),
+        url('/GothamProNarrow-Bold.637790a7.woff') format('woff'),
+        url('/GothamProNarrow-Bold.279f02ab.ttf') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-Medium.9951d6e0.eot');
+    src: local('Gotham Pro Medium'), local('GothamPro-Medium'),
+        url('/GothamPro-Medium.9951d6e0.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-Medium.b322caac.woff2') format('woff2'),
+        url('/GothamPro-Medium.c46225a2.woff') format('woff'),
+        url('/GothamPro-Medium.a2aff262.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-BoldItalic.84500262.eot');
+    src: local('Gotham Pro Bold Italic'), local('GothamPro-BoldItalic'),
+        url('/GothamPro-BoldItalic.84500262.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-BoldItalic.ae96de69.woff2') format('woff2'),
+        url('/GothamPro-BoldItalic.311f7302.woff') format('woff'),
+        url('/GothamPro-BoldItalic.594c9234.ttf') format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro.f4875da3.eot');
+    src: local('Gotham Pro'), local('GothamPro'),
+        url('/GothamPro.f4875da3.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro.5aacae16.woff2') format('woff2'),
+        url('/GothamPro.bc773320.woff') format('woff'),
+        url('/GothamPro.0af2f95e.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-MediumItalic.2753804e.eot');
+    src: local('Gotham Pro Medium Italic'), local('GothamPro-MediumItalic'),
+        url('/GothamPro-MediumItalic.2753804e.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-MediumItalic.c7fe4dd3.woff2') format('woff2'),
+        url('/GothamPro-MediumItalic.e51cd056.woff') format('woff'),
+        url('/GothamPro-MediumItalic.e6996ea6.ttf') format('truetype');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-BlackItalic.de7a88b8.eot');
+    src: local('Gotham Pro Black Italic'), local('GothamPro-BlackItalic'),
+        url('/GothamPro-BlackItalic.de7a88b8.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-BlackItalic.c8caef04.woff2') format('woff2'),
+        url('/GothamPro-BlackItalic.72a4777f.woff') format('woff'),
+        url('/GothamPro-BlackItalic.51d57768.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Gotham Pro Narrow';
+    src: url('/GothamProNarrow-Medium.2fdb8524.eot');
+    src: local('Gotham Pro Narrow Medium'), local('GothamProNarrow-Medium'),
+        url('/GothamProNarrow-Medium.2fdb8524.eot?#iefix') format('embedded-opentype'),
+        url('/GothamProNarrow-Medium.c507e8a6.woff2') format('woff2'),
+        url('/GothamProNarrow-Medium.e03435b6.woff') format('woff'),
+        url('/GothamProNarrow-Medium.467b96ec.ttf') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Gotham Pro';
+    src: url('/GothamPro-LightItalic.2e1325da.eot');
+    src: local('Gotham Pro Light Italic'), local('GothamPro-LightItalic'),
+        url('/GothamPro-LightItalic.2e1325da.eot?#iefix') format('embedded-opentype'),
+        url('/GothamPro-LightItalic.d2a6cb1e.woff2') format('woff2'),
+        url('/GothamPro-LightItalic.9267d1f7.woff') format('woff'),
+        url('/GothamPro-LightItalic.cb8b2d28.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+
 * {
   margin: 0;
   padding: 0;
@@ -570,6 +715,23 @@ section .work:hover .work_cover::after {
   margin: 20vh 2vw 20vh 10vw;
   right: 0;
   z-index: 3;
+  overflow-x: hidden;
+  /* width */
+  /* Track */
+  /* Handle */
+  /* Handle on hover */
+}
+.info ::-webkit-scrollbar {
+  width: 3px;
+}
+.info ::-webkit-scrollbar-track {
+  background: #EEEEEE;
+}
+.info ::-webkit-scrollbar-thumb {
+  background: #F8BA01;
+}
+.info ::-webkit-scrollbar-thumb:hover {
+  background: #191919;
 }
 .info .buttons_wrap {
   margin: 1vw 0 0 1vw;
@@ -616,6 +778,7 @@ section .work:hover .work_cover::after {
   margin: 1.8vw 0 0 1.6vw;
   overflow: scroll;
   height: 80%;
+  overflow-x: hidden;
 }
 .info .backstage .backstage_grid {
   width: 100%;
@@ -641,6 +804,7 @@ section .work:hover .work_cover::after {
   padding: 2vw 0 0 1.6vw;
   overflow: scroll;
   height: 80%;
+  overflow-x: hidden;
 }
 .info .credits .credits_grid {
   width: 100%;
@@ -772,6 +936,41 @@ section .work:hover .work_cover::after {
 .vacancies_wrapper #vacancies_form label {
   text-transform: uppercase;
   opacity: 0.6;
+}
+
+.about .cover_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+}
+.about .cover_container::after {
+  width: 100%;
+  height: 100%;
+  background-color: #191919;
+  opacity: 0.1;
+  position: absolute;
+  z-index: 3;
+  content: "";
+}
+.about .cover_container img {
+  filter: url("#yellow");
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  position: absolute;
+}
+.about .team_member {
+  position: absolute;
+  z-index: 5;
+}
+.about #pavel {
+  top: 0;
+  left: 10%;
+}
+
+svg#yellow_filter {
+  width: 100vw;
+  height: 100vh;
 }
 
 /*# sourceMappingURL=/style.e0c02e61.css.map */
