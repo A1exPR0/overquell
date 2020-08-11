@@ -76,6 +76,7 @@ nav {
     top: 0;
     z-index: 3;
     padding: 2vw 0 0 3.4vw;
+    z-index:10;
 
     svg {
         width: 3.4vw;
@@ -977,6 +978,7 @@ section .work {
             height:100vh;
             object-fit: cover;
             position:absolute;
+            // transform:scale(1.5) ;
             // top:-5%;
             
         }
@@ -1000,16 +1002,16 @@ section .work {
     }
 
     #pavel{
-        top:60%;
-        left:80%;
+        top:55%;
+        left:77%;
     }
     #gregory{
-        top:40%;
-        left:20%;
+        top:35%;
+        left:16%;
     }
-    #vladimir{
-        top:70%;
-        left:45%;
+    #vladimir{ 
+        top:67%;
+        left:43%;
     }
 }
 
