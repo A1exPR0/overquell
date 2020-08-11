@@ -11,11 +11,6 @@ import Highway from "@dogstudio/highway";
 
 class PageLoader {
     play_video(id, name) {
-        //TODO
-        //do something with share controls on vimeo
-
-
-
         // console.log("PLay_video function running");
         // console.log(id);
         //hide menu
@@ -157,17 +152,17 @@ class PageLoader {
 
         //open contacts
         var open_cont = document.querySelector("#contacts_menu");
-         open_cont.addEventListener("click", () => {
-                     gsap.to(".contacts", 0.5, {
-                         yPercent: -110
-                     });
-               });
+        open_cont.addEventListener("click", () => {
+            gsap.to(".contacts", 0.5, {
+                yPercent: -110
+            });
+        });
 
         //close contacts
         var close_cont = document.querySelector("#contact_close");
-        close_cont.addEventListener("click",()=>{
-            gsap.to(".contacts",0.5,{
-                yPercent:0
+        close_cont.addEventListener("click", () => {
+            gsap.to(".contacts", 0.5, {
+                yPercent: 0
             });
         });
 
