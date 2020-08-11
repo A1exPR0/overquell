@@ -149,6 +149,21 @@
   box-sizing: border-box;
 }
 
+.noscriptmsg {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  text-align: center;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+.noscriptmsg a {
+  color: #F8BA01;
+}
+.noscriptmsg div {
+  margin: auto;
+}
+
 html {
   font-size: 1.1vw;
 }
@@ -919,7 +934,8 @@ section .work:hover .work_cover::after {
   padding: 10px;
   line-height: 1.2rem;
 }
-.vacancies_wrapper #vacancies_form input:focus, .vacancies_wrapper #vacancies_form textarea:focus {
+.vacancies_wrapper #vacancies_form input:focus,
+.vacancies_wrapper #vacancies_form textarea:focus {
   outline: #F8BA01 auto 1px;
   outline-offset: 1px;
 }
