@@ -957,6 +957,9 @@ section .work:hover .work_cover::after {
   width: 100vw;
   height: 100vh;
 }
+.about #team_container {
+  display: block;
+}
 .about .cover_container {
   width: 100vw;
   height: 100vh;
