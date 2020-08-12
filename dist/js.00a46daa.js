@@ -20336,6 +20336,96 @@ var PageLoader = /*#__PURE__*/function () {
 
           });
         });
+      } //ABOUT
+
+
+      if (pathname === "/about.html") {
+        console.log("About page");
+        var clients_btn = document.querySelector("#clients_btn");
+        clients_btn.addEventListener("click", function () {
+          //hide team
+          _gsap.default.to(".team_member", 1, {
+            opacity: 0,
+            yPercent: -100,
+            pointerEvents: 'none'
+          });
+
+          _gsap.default.to(clients_btn, 1, {
+            opacity: 0,
+            yPercent: -100,
+            pointerEvents: 'none'
+          });
+
+          _gsap.default.to(".cover_container img", 1, {
+            yPercent: -10,
+            scale: 1.25
+          }); //create close or nav btn
+
+
+          var team_btn = document.createElement("h4");
+          var link = document.createElement("a");
+          link.innerHTML = "Команда";
+          team_btn.style.opacity = 0;
+          team_btn.appendChild(link);
+          team_btn.id = "team_btn";
+
+          _gsap.default.fromTo(team_btn, 1, {
+            opacity: 0,
+            yPercent: 200
+          }, {
+            opacity: 1,
+            yPercent: 0
+          });
+
+          team_btn.addEventListener("click", function () {
+            //show team
+            _gsap.default.to(".team_member", 1, {
+              opacity: 1,
+              yPercent: 0,
+              pointerEvents: 'auto'
+            });
+
+            _gsap.default.to(clients_btn, 1, {
+              opacity: 1,
+              yPercent: 0,
+              pointerEvents: 'auto'
+            });
+
+            _gsap.default.to(".cover_container img", 1, {
+              yPercent: 0,
+              scale: 1
+            }); //hide clients
+
+
+            _gsap.default.to(".clients_container", 1, {
+              opacity: 0,
+              yPercent: 20
+            });
+
+            _gsap.default.to(team_btn, 1, {
+              opacity: 0,
+              yPercent: 20
+            }); //kill team_btn
+
+
+            _gsap.default.fromTo(team_btn, 1, {
+              opacity: 1,
+              yPercent: 0
+            }, {
+              opacity: 0,
+              yPercent: 200,
+              onComplete: function onComplete() {
+                team_btn.remove();
+              }
+            });
+          });
+          document.querySelector("section").appendChild(team_btn); //show clients
+
+          _gsap.default.to(".clients_container", 1, {
+            opacity: 1,
+            yPercent: -100
+          });
+        });
       } //uncomment for multi directional slides
       // this.updateDirections(pathname);
 
@@ -20458,6 +20548,107 @@ var _svg = require("@svgdotjs/svg.js");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it.return != null) it.return(); } finally { if (didErr) throw err; } } }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function manageScripts(to) {
+  // Your main JS file, used to prepend other scripts
+  var main = document.querySelector('#main-script');
+
+  var a = _toConsumableArray(to.page.querySelectorAll('script:not([data-no-reload])'));
+
+  var b = _toConsumableArray(document.querySelectorAll('script:not([data-no-reload])')); // Compare Scripts
+
+
+  for (var i = 0; i < b.length; i++) {
+    var c = b[i];
+
+    for (var j = 0; j < a.length; j++) {
+      var d = a[j];
+
+      if (c.outerHTML === d.outerHTML) {
+        // Create Shadow Script
+        var script = document.createElement(c.tagName); // Loop Over Attributes
+
+        for (var k = 0; k < c.attributes.length; k++) {
+          // Get Attribute
+          var attr = c.attributes[k]; // Set Attribute
+
+          script.setAttribute(attr.nodeName, attr.nodeValue);
+        } // Inline Script
+
+
+        if (c.innerHTML) {
+          script.innerHTML = c.innerHTML;
+        } // Replace
+
+
+        c.parentNode.replaceChild(script, c); // Clean Arrays
+
+        b.splice(i, 1);
+        a.splice(j, 1); // Exit Loop
+
+        break;
+      }
+    }
+  } // Remove Useless
+
+
+  var _iterator = _createForOfIteratorHelper(b),
+      _step;
+
+  try {
+    for (_iterator.s(); !(_step = _iterator.n()).done;) {
+      var _script = _step.value;
+
+      // Remove
+      _script.parentNode.removeChild(_script);
+    } // Add Scripts
+
+  } catch (err) {
+    _iterator.e(err);
+  } finally {
+    _iterator.f();
+  }
+
+  var iter = 0;
+
+  var _iterator2 = _createForOfIteratorHelper(a),
+      _step2;
+
+  try {
+    for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+      var _script2 = _step2.value;
+      // console.log(script);
+      var loc = _script2.parentNode.tagName;
+
+      if (loc === 'HEAD') {
+        document.head.appendChild(_script2);
+      }
+
+      if (loc === 'BODY') {
+        document.body.insertBefore(_script2, main);
+      } // console.log(iter++);
+
+    }
+  } catch (err) {
+    _iterator2.e(err);
+  } finally {
+    _iterator2.f();
+  }
+}
+
 var H = new _highway.default.Core({
   transitions: {
     default: _Fade.default // contextual: {
@@ -20493,23 +20684,16 @@ H.on('NAVIGATE_OUT', function (_ref) {
   }
 });
 H.on('NAVIGATE_END', function (_ref2) {
-  var location = _ref2.location;
+  var to = _ref2.to,
+      location = _ref2.location;
+  // console.log("NAVIGATE END");
+  // manageScripts(to);
   PL.loadPage(location.pathname);
 });
 H.on('NAVIGATE_IN', function (_ref3) {
   var location = _ref3.location;
   PL.hidePage(location.pathname);
-}); //contacts
-
-function closeContacts() {
-  var close_cont = document.querySelector("#contact_close");
-  close_cont.addEventListener("click", function () {
-    _gsapCore.default.to(".contacts", 0.5, {
-      yPercent: -110
-    });
-  });
-  return true;
-}
+});
 },{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js","./Transitions/Fade":"js/Transitions/Fade.js","./pageLoader":"js/pageLoader.js","gsap/gsap-core":"node_modules/gsap/gsap-core.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -20538,7 +20722,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "61078" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50548" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

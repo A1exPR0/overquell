@@ -6,6 +6,59 @@ import {
     SVG
 } from "@svgdotjs/svg.js";
 
+function manageScripts(to) {
+    // Your main JS file, used to prepend other scripts
+    const main = document.querySelector('#main-script');
+    const a = [...to.page.querySelectorAll('script:not([data-no-reload])')];
+    const b = [...document.querySelectorAll('script:not([data-no-reload])')];
+    // Compare Scripts
+    for (let i = 0; i < b.length; i++) {
+        const c = b[i];
+        for (let j = 0; j < a.length; j++) {
+            const d = a[j];
+            if (c.outerHTML === d.outerHTML) {
+                // Create Shadow Script
+                const script = document.createElement(c.tagName);
+                // Loop Over Attributes
+                for (let k = 0; k < c.attributes.length; k++) {
+                    // Get Attribute
+                    const attr = c.attributes[k];
+                    // Set Attribute
+                    script.setAttribute(attr.nodeName, attr.nodeValue);
+                }
+                // Inline Script
+                if (c.innerHTML) {
+                    script.innerHTML = c.innerHTML;
+                }
+                // Replace
+                c.parentNode.replaceChild(script, c);
+                // Clean Arrays
+                b.splice(i, 1);
+                a.splice(j, 1);
+                // Exit Loop
+                break;
+            }
+        }
+    }
+    // Remove Useless
+    for (const script of b) {
+        // Remove
+        script.parentNode.removeChild(script);
+    }
+    // Add Scripts
+    var iter = 0;
+    for (const script of a) {
+        // console.log(script);
+        const loc = script.parentNode.tagName;
+        if (loc === 'HEAD') {
+            document.head.appendChild(script);
+        }
+        if (loc === 'BODY') {
+            document.body.insertBefore(script, main);
+        }
+        // console.log(iter++);
+    }
+}
 
 const H = new Highway.Core({
     transitions: {
@@ -46,9 +99,12 @@ H.on('NAVIGATE_OUT', ({
 });
 
 H.on('NAVIGATE_END', ({
-    location
+    to,location
 }) => {
+    // console.log("NAVIGATE END");
+    // manageScripts(to);
     PL.loadPage(location.pathname);
+    
 });
 H.on('NAVIGATE_IN', ({
 
@@ -57,14 +113,3 @@ H.on('NAVIGATE_IN', ({
     PL.hidePage(location.pathname);
 });
 
-//contacts
-function closeContacts() {
-    var close_cont = document.querySelector("#contact_close");
-    close_cont.addEventListener("click", () => {
-        gsap.to(".contacts", 0.5, {
-            yPercent: -110
-        });
-    });
-
-    return true;
-}

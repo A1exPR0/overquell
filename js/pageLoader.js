@@ -341,6 +341,90 @@ class PageLoader {
 
         }
 
+
+        //ABOUT
+        if (pathname === "/about.html") {
+            console.log("About page");
+            var clients_btn = document.querySelector("#clients_btn");
+            clients_btn.addEventListener("click", () => {
+                //hide team
+                gsap.to(".team_member", 1, {
+                    opacity: 0,
+                    yPercent: -100,
+                    pointerEvents: 'none'
+                });
+                gsap.to(clients_btn, 1, {
+                    opacity: 0,
+                    yPercent: -100,
+                    pointerEvents: 'none'
+                });
+                gsap.to(".cover_container img", 1, {
+                    yPercent: -10,
+                    scale: 1.25
+                });
+                //create close or nav btn
+                var team_btn = document.createElement("h4");
+                var link = document.createElement("a");
+                link.innerHTML = "Команда";
+                team_btn.style.opacity = 0;
+                team_btn.appendChild(link);
+                team_btn.id = "team_btn";
+                gsap.fromTo(team_btn, 1, {
+                    opacity: 0,
+                    yPercent: 200
+                }, {
+                    opacity: 1,
+                    yPercent: 0
+                });
+                team_btn.addEventListener("click", () => {
+                    //show team
+                    gsap.to(".team_member", 1, {
+                        opacity: 1,
+                        yPercent: 0,
+                        pointerEvents: 'auto'
+                    });
+                    gsap.to(clients_btn, 1, {
+                        opacity: 1,
+                        yPercent: 0,
+                        pointerEvents: 'auto'
+                    });
+                    gsap.to(".cover_container img", 1, {
+                        yPercent: 0,
+                        scale: 1
+                    });
+
+                    //hide clients
+                    gsap.to(".clients_container", 1, {
+                        opacity: 0,
+                        yPercent: 20
+                    });
+                    gsap.to(team_btn, 1, {
+                        opacity: 0,
+                        yPercent: 20
+                    })
+                    //kill team_btn
+                    gsap.fromTo(team_btn, 1, {
+                        opacity: 1,
+                        yPercent: 0
+                    }, {
+                        opacity: 0,
+                        yPercent: 200,
+                        onComplete:()=>{
+                            team_btn.remove();      
+                        }
+                    });
+                    
+                });
+                document.querySelector("section").appendChild(team_btn);
+
+                //show clients
+                gsap.to(".clients_container", 1, {
+                    opacity: 1,
+                    yPercent: -100
+                });
+            });
+        }
+
         //uncomment for multi directional slides
         // this.updateDirections(pathname);
         return true;
