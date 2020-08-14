@@ -5,6 +5,7 @@ import gsap from "gsap/gsap-core";
 import {
     SVG
 } from "@svgdotjs/svg.js";
+import Zaglushka from "./zaglushka"
 
 function manageScripts(to) {
     // Your main JS file, used to prepend other scripts
@@ -60,6 +61,7 @@ function manageScripts(to) {
     }
 }
 
+
 const H = new Highway.Core({
     transitions: {
         default: Fade
@@ -73,8 +75,23 @@ const H = new Highway.Core({
 });
 
 const links = document.querySelectorAll('nav a');
+var orientation;
+const Z = new Zaglushka();
+console.log(Z);
 const PL = new PageLoader;
 window.onload = function () {
+    orientation=getOrientation();
+    // console.log(Z);
+    // check orintation
+    if(orientation=="Landscape"){
+        var div=document.querySelector("#"+Z.div_id);
+        if(div){
+            div.remove();
+        }  
+        Z.created=false; 
+      }
+    //if landscape load page
+    
     PL.loadPage(document.location.pathname);
 
 
@@ -113,3 +130,38 @@ H.on('NAVIGATE_IN', ({
     PL.hidePage(location.pathname);
 });
 
+function getOrientation(){
+    var orient = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
+    return orient;
+}
+
+ window.onresize = function(){ 
+
+    var new_orientation=getOrientation();
+    
+      //проверка ориентации какая была
+        if(new_orientation!=orientation)
+        {
+            orientation=new_orientation;
+
+            //новая ориентация портрет
+            if(new_orientation=="Portrait" && !Z.created){
+              Z.show();    
+            }
+
+            // новая ориентация лэндскейп
+           if(new_orientation=="Landscape" && Z.created){
+               Z.hide();
+           }
+         
+        }
+
+
+    // если ориентация изменилась с гориз на вертикальную
+
+    //то начать функцию заглушки
+
+    //когда заглушка отработала то начать загрузку страницы
+
+
+    }

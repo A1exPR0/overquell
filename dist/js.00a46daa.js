@@ -20533,7 +20533,109 @@ var PageLoader = /*#__PURE__*/function () {
 
 var _default = PageLoader;
 exports.default = _default;
-},{"gsap":"node_modules/gsap/index.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js","@vimeo/player":"node_modules/@vimeo/player/dist/player.es.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js"}],"js/index.js":[function(require,module,exports) {
+},{"gsap":"node_modules/gsap/index.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js","@vimeo/player":"node_modules/@vimeo/player/dist/player.es.js","@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js"}],"js/zaglushka.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+var _gsap = _interopRequireWildcard(require("gsap"));
+
+var _svg = require("@svgdotjs/svg.js");
+
+function _getRequireWildcardCache() { if (typeof WeakMap !== "function") return null; var cache = new WeakMap(); _getRequireWildcardCache = function () { return cache; }; return cache; }
+
+function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } if (obj === null || typeof obj !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+var Zaglushka = /*#__PURE__*/function () {
+  function Zaglushka() {
+    _classCallCheck(this, Zaglushka);
+
+    _defineProperty(this, "div", void 0);
+
+    _defineProperty(this, "div_id", void 0);
+
+    _defineProperty(this, "created", void 0);
+
+    _defineProperty(this, "svg", void 0);
+
+    _defineProperty(this, "tl", new _gsap.TimelineLite());
+
+    this.div = document.createElement("div");
+    this.div_id = "zagl_div";
+    this.div.id = this.div_id;
+    this.created = true; // console.log("constructor running ...");
+
+    this.div.style.backgroundColor = "#191919";
+    this.div.style.position = "absolute";
+    this.div.style.width = "100vw";
+    this.div.style.height = "100vh";
+    this.div.style.zIndex = "20";
+    this.div.style.opacity = "0";
+    this.div.style.top = "0";
+    this.div.style.left = "0";
+    var h3 = document.createElement("h3");
+    h3.style.textAlign = "center";
+    h3.style.fontSize = "5rem";
+    h3.style.lineHeight = "100vh";
+    h3.style.opacity = 0;
+    h3.innerText = "Переверните устройство";
+    this.div.appendChild(h3); // return true;
+  }
+
+  _createClass(Zaglushka, [{
+    key: "show",
+    value: function show() {
+      //
+      document.body.appendChild(this.div);
+      this.tl.to(this.div, 0.5, {
+        opacity: 1
+      }).to(this.div.children[0], 1, {
+        opacity: 1
+      });
+      this.created = true; // return div.id;
+    }
+  }, {
+    key: "rotate",
+    value: function rotate() {}
+  }, {
+    key: "loading",
+    value: function loading() {}
+  }, {
+    key: "hide",
+    value: function hide() {
+      var _this = this;
+
+      // var div=document.querySelector("#"+div_id);
+      console.log(this.div);
+      this.tl.to(this.div.children[0], 0.5, {
+        opacity: 0
+      }).to(this.div, 1, {
+        opacity: 0,
+        onComplete: function onComplete() {
+          _this.div.remove();
+
+          _this.created = false;
+        }
+      });
+    }
+  }]);
+
+  return Zaglushka;
+}();
+
+exports.default = Zaglushka;
+},{"gsap":"node_modules/gsap/index.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js"}],"js/index.js":[function(require,module,exports) {
 "use strict";
 
 var _highway = _interopRequireDefault(require("@dogstudio/highway"));
@@ -20545,6 +20647,8 @@ var _pageLoader = _interopRequireDefault(require("./pageLoader"));
 var _gsapCore = _interopRequireDefault(require("gsap/gsap-core"));
 
 var _svg = require("@svgdotjs/svg.js");
+
+var _zaglushka = _interopRequireDefault(require("./zaglushka"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -20661,9 +20765,26 @@ var H = new _highway.default.Core({
   }
 });
 var links = document.querySelectorAll('nav a');
+var orientation;
+var Z = new _zaglushka.default();
+console.log(Z);
 var PL = new _pageLoader.default();
 
 window.onload = function () {
+  orientation = getOrientation(); // console.log(Z);
+  // check orintation
+
+  if (orientation == "Landscape") {
+    var div = document.querySelector("#" + Z.div_id);
+
+    if (div) {
+      div.remove();
+    }
+
+    Z.created = false;
+  } //if landscape load page
+
+
   PL.loadPage(document.location.pathname);
 }; // Listen the `NAVIGATE_IN` event
 // This event is sent everytime a `data-router-view` is added to the DOM Tree
@@ -20694,7 +20815,32 @@ H.on('NAVIGATE_IN', function (_ref3) {
   var location = _ref3.location;
   PL.hidePage(location.pathname);
 });
-},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js","./Transitions/Fade":"js/Transitions/Fade.js","./pageLoader":"js/pageLoader.js","gsap/gsap-core":"node_modules/gsap/gsap-core.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js"}],"../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+
+function getOrientation() {
+  var orient = window.innerWidth > window.innerHeight ? "Landscape" : "Portrait";
+  return orient;
+}
+
+window.onresize = function () {
+  var new_orientation = getOrientation(); //проверка ориентации какая была
+
+  if (new_orientation != orientation) {
+    orientation = new_orientation; //новая ориентация портрет
+
+    if (new_orientation == "Portrait" && !Z.created) {
+      Z.show();
+    } // новая ориентация лэндскейп
+
+
+    if (new_orientation == "Landscape" && Z.created) {
+      Z.hide();
+    }
+  } // если ориентация изменилась с гориз на вертикальную
+  //то начать функцию заглушки
+  //когда заглушка отработала то начать загрузку страницы
+
+};
+},{"@dogstudio/highway":"node_modules/@dogstudio/highway/build/highway.module.js","./Transitions/Fade":"js/Transitions/Fade.js","./pageLoader":"js/pageLoader.js","gsap/gsap-core":"node_modules/gsap/gsap-core.js","@svgdotjs/svg.js":"node_modules/@svgdotjs/svg.js/dist/svg.esm.js","./zaglushka":"js/zaglushka.js"}],"C:/Users/Алексей/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -20722,7 +20868,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50548" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63458" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -20898,5 +21044,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../../usr/local/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","js/index.js"], null)
+},{}]},{},["C:/Users/Алексей/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","js/index.js"], null)
 //# sourceMappingURL=/js.00a46daa.js.map

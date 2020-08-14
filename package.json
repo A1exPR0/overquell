@@ -15,7 +15,8 @@
     "@svgdotjs/svg.js": "^3.0.16",
     "@vimeo/player": "^2.12.2",
     "gsap": "^3.4.2",
-    "lightbox2": "^2.11.3"
+    "lightbox2": "^2.11.3",
+    "t": "^0.5.1"
   },
   "devDependencies": {
     "sass": "^1.26.10"

@@ -156,6 +156,8 @@
   text-align: center;
   font-size: 1.5rem;
   line-height: 2rem;
+  position: relative;
+  z-index: 100;
 }
 .noscriptmsg a {
   color: #F8BA01;
