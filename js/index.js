@@ -89,27 +89,27 @@ function getOrientation(){
     return orient;
 }
 
- window.onresize = function(){ 
+//  window.onresize = function(){ 
 
-    var new_orientation=getOrientation();
+//     var new_orientation=getOrientation();
     
       //проверка ориентации какая была
-        if(new_orientation!=orientation)
-        {
-            orientation=new_orientation;
+        // if(new_orientation!=orientation)
+        // {
+        //     orientation=new_orientation;
 
             //новая ориентация портрет
-            if(new_orientation=="Portrait" && !Z.created){
-                Z.setSvgVertical();
-              Z.show();    
-            }
+            // if(new_orientation=="Portrait" && !Z.created){
+            //     Z.setSvgVertical();
+            //   Z.show();    
+            // }
 
             // новая ориентация лэндскейп
-           if(new_orientation=="Landscape" && Z.created){
-               Z.hide();
-           }
+        //    if(new_orientation=="Landscape" && Z.created){
+        //        Z.hide();
+        //    }
          
-        }
+        // }
 
 
     // если ориентация изменилась с гориз на вертикальную
@@ -119,7 +119,7 @@ function getOrientation(){
     //когда заглушка отработала то начать загрузку страницы
 
 
-    }
+    // }
 
 
 //Managing scripts loading for each page

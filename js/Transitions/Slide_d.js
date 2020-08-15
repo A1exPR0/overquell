@@ -10,6 +10,7 @@ class Slide_d extends Highway.Transition {
         from,
         done
     }) {
+
         done();
     } in ({
         to,
@@ -18,29 +19,40 @@ class Slide_d extends Highway.Transition {
     }) {
         const dur = 1;
         const offset = "-=" + dur;
-        const my_ease = "power2";
-        console.log(dur, offset, my_ease);
-        const loader = document.createElement('div');
-        loader.className = "slide_loader_horiz";
-        document.querySelector("main").appendChild(loader);
+        const my_ease = "power2.in";
+        // to.addClassName("moving");
+        // var el = document.querySelectorAll(to);
+        // console.log(el);
+         
+        //UNCOMENT TO RETURN LOADER 
+        // console.log(dur, offset, my_ease);
+        // const loader = document.createElement('div');
+        // loader.className = "slide_loader_horiz";
+        // document.querySelector("main").appendChild(loader);
         const tl = new TimelineLite();
         tl.to(from, dur, {
                 yPercent: 100,
                 ease: my_ease,
             })
-            .fromTo(loader, dur, {
-                bottom: '100%',
-                height: '20px',
-            }, {
-                bottom: '-5px',
-                height: '5px',
-                ease: my_ease
-            }, offset)
+            // .from(noises[1],dur,{
+            //     opacity:0
+            // },offset)
+            //UNCOMENT TO RETURN LOADER 
+            // .fromTo(loader, dur, {
+            //     bottom: '100%',
+            //     height: '20px',
+            // }, {
+            //     bottom: '-5px',
+            //     height: '5px',
+            //     ease: my_ease
+            // }, offset)
             .from(to, dur, {
                     yPercent: -100,
                     ease: my_ease,
                     onComplete: () => {
-                        loader.remove();
+
+                        //UNCOMENT TO RETURN LOADER 
+                        // loader.remove();
                         from.remove();
                         done();
                     }

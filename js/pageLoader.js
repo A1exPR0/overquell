@@ -200,7 +200,7 @@ class PageLoader {
                 //     amount: 0.5
                 // },
                 scale: 1,
-                ease:"power2"
+                // ease:"power2"
                 // clearProps: "scale"
             });
             var imgs = document.querySelectorAll(".gallery_img");
