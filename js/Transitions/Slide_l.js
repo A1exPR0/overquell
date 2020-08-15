@@ -15,29 +15,36 @@ class Slide_l extends Highway.Transition {
         from,
         done
     }) {
+        const dur = 1;
+        const offset = "-=" + dur;
+        const my_ease = "power2";
+        // console.log(dur,offset,my_ease);
         const loader = document.createElement('div');
         loader.className = "slide_loader_vert";
         document.querySelector("main").appendChild(loader);
-        const tl=new TimelineLite();
-        tl.to(from, 0.5, {
-                xPercent: -100
+        const tl = new TimelineLite();
+        tl.to(from, dur, {
+                xPercent: -100,
+                ease: my_ease,
             })
-            .fromTo(loader, 0.5, {
+            .fromTo(loader, dur, {
                 left: '100%',
-                width: '50px'
+                width: '20px'
             }, {
                 left: '0%',
-                width: '5px'
-            }, "-=0.5")
-            .from(to, 0.5, {
-                xPercent: 100,
-                onComplete: () => {
-                    loader.remove();
-                    from.remove();
-                    done();
-                }
-            },
-            "-=0.5");
+                width: '5px',
+                ease: my_ease,
+            }, offset)
+            .from(to, dur, {
+                    xPercent: 100,
+                    ease: my_ease,
+                    onComplete: () => {
+                        loader.remove();
+                        from.remove();
+                        done();
+                    }
+                },
+                offset);
     }
 }
 

@@ -9,13 +9,18 @@ export default class Zaglushka {
     div_id
     created
     svg
+    tail
+    group
    tl=new TimelineLite();
     
     constructor() {
         this.div=document.createElement("div");
+        this.group = document.querySelector("#group_logo");
+        this.tail = document.querySelector("#tail");
         this.div_id="zagl_div";
         this.div.id=this.div_id;
         this.created=true;
+        this.svg = new SVG("#logo_for_zagl");
         // console.log("constructor running ...");
        
           // this.div.appendChild(this.svg);
@@ -39,13 +44,15 @@ export default class Zaglushka {
         h3.style.opacity=0;
         h3.innerText="Переверните устройство";
         this.div.appendChild(h3);
+      
 
 
         //create svg
-        this.svg=new SVG("#logo_for_zagl");
-        console.log(this.svg);
+        
+        // console.log(this.svg);
 
         this.svg.opacity(0);
+        this.svg.scale(0.5);
         this.svg.css({position: "absolute",
             'z-index': 21,
             display:"block",
@@ -66,8 +73,8 @@ export default class Zaglushka {
         .to(this.svg, 1,{
             opacity:1,
             onComplete:()=>{
-                this.rotate();
-            }
+                this.rotatetoHorizontal();
+                        }
             
         });
 
@@ -75,19 +82,37 @@ export default class Zaglushka {
         // return div.id;
     }
 
-    rotate() {
-            var tail = document.querySelector("#tail");
-            var group = document.querySelector("#group_logo");
-            this.tl.to(tail,1,{
+    rotatetoVertical() {    
+            this.tl.to(this.tail,1,{
                 yPercent:50,
                 xPercent:-50
             }).
-            to(group,1,{
+            to(this.group,1,{
                 rotate:90,
                 transformOrigin:"60% 50%"
             },"-=1");
     }
-
+    rotatetoHorizontal() {
+            this.tl.to(this.tail,1,{
+                yPercent:-50,
+                xPercent:50
+            }).
+            to(this.group,1,{
+                rotate:-90,
+                transformOrigin:"50% 60%"
+            },"-=1");
+    }
+    setSvgVertical(){
+        var svg_group= new SVG(this.group);
+        svg_group.transform({
+            // origin:["60%","50%"],
+            rotate:90,
+            // scale:0.5
+        });
+        var svg_tail= new SVG(this.tail);
+        // svg_tail.dx(-50);
+        svg_tail.dy(50);
+    }
     loading() {
 
     }

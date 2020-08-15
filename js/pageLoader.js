@@ -181,20 +181,27 @@ class PageLoader {
                 })
 
             })
-            tl.fromTo(".gallery_img", 0.5, {
+
+
+            var imgs=document.querySelectorAll(".gallery_img");
+            imgs.forEach((img)=>{
+                img.style.transform="scale(0.2)";
+            })
+            tl.fromTo(".gallery_img", 1, {
                 opacity: 0,
                 x: -40,
                 y: -40,
-                scale: 0.5
+                scale: 0.2
             }, {
                 opacity: 1,
                 x: 0,
                 y: 0,
-                stagger: {
-                    amount: 0.5
-                },
+                // stagger: {
+                //     amount: 0.5
+                // },
                 scale: 1,
-                clearProps: "scale"
+                ease:"power2"
+                // clearProps: "scale"
             });
             var imgs = document.querySelectorAll(".gallery_img");
             imgs.forEach((img) => {
@@ -344,7 +351,7 @@ class PageLoader {
 
         //ABOUT
         if (pathname === "/about.html") {
-            console.log("About page");
+            // console.log("About page");
             var clients_btn = document.querySelector("#clients_btn");
             clients_btn.addEventListener("click", () => {
                 //hide team
@@ -426,7 +433,7 @@ class PageLoader {
         }
 
         //uncomment for multi directional slides
-        // this.updateDirections(pathname);
+        this.updateDirections(pathname);
         return true;
     }
 
@@ -465,7 +472,7 @@ class PageLoader {
         for (var i = 0; i < all_links.length; i++) {
             if (all_links[i].className === "active") {
                 active_nav = all_links[i].parentNode.parentNode.parentNode;
-                console.log("Active nav is ", active_nav.className);
+                // console.log("Active nav is ", active_nav.className);
             }
         }
         // console.log("nav." + nav.className);
@@ -475,11 +482,11 @@ class PageLoader {
 
         //Finding active link id
         var active_id;
-        console.log(links);
+        // console.log(links);
         for (var i = 0; i < links.length; i++) {
             if (links[i].className === "active") {
                 active_id = i;
-                console.log("Active id is ", active_id);
+                // console.log("Active id is ", active_id);
             }
         }
         //setting left or right for active nav

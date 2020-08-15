@@ -3,6 +3,7 @@ import {
     TimelineLite
 } from 'gsap';
 import gsap from 'gsap';
+import { off } from '@svgdotjs/svg.js';
 
 class Slide_d extends Highway.Transition {
     out({
@@ -15,29 +16,36 @@ class Slide_d extends Highway.Transition {
         from,
         done
     }) {
-        const loader=document.createElement('div');
-        loader.className="slide_loader_horiz";
+        const dur = 1;
+        const offset = "-=" + dur;
+        const my_ease = "power2";
+        console.log(dur, offset, my_ease);
+        const loader = document.createElement('div');
+        loader.className = "slide_loader_horiz";
         document.querySelector("main").appendChild(loader);
-        const tl=new TimelineLite();
-        tl.to(from, 0.5, {
-                yPercent: 100
-            }) 
-            .fromTo(loader,0.5,{
-                bottom:'100%',
-                height:'50px'
-            },{
-               bottom: '-10%',
-               height:'5px'
-            },"-=0.5")
-            .from(to, 0.5, {
-                yPercent: -100,
-                onComplete: () => {
-                    loader.remove();
-                    from.remove();
-                    done();
-                }
-            },
-            "-=0.5");
+        const tl = new TimelineLite();
+        tl.to(from, dur, {
+                yPercent: 100,
+                ease: my_ease,
+            })
+            .fromTo(loader, dur, {
+                bottom: '100%',
+                height: '20px',
+            }, {
+                bottom: '-5px',
+                height: '5px',
+                ease: my_ease
+            }, offset)
+            .from(to, dur, {
+                    yPercent: -100,
+                    ease: my_ease,
+                    onComplete: () => {
+                        loader.remove();
+                        from.remove();
+                        done();
+                    }
+                },
+                offset);
     }
 }
 
