@@ -17,6 +17,12 @@ export default class Zaglushka {
         this.div.id=this.div_id;
         this.created=true;
         // console.log("constructor running ...");
+       
+          // this.div.appendChild(this.svg);
+
+        // return true;
+    }
+    show() {
         this.div.style.backgroundColor = "#191919";
         this.div.style.position = "absolute";
         this.div.style.width = "100vw";
@@ -34,17 +40,35 @@ export default class Zaglushka {
         h3.innerText="Переверните устройство";
         this.div.appendChild(h3);
 
-        // return true;
-    }
-    show() {
+
+        //create svg
+        this.svg=new SVG("#logo_for_zagl");
+        console.log(this.svg);
+
+        this.svg.opacity(0);
+        this.svg.css({position: "absolute",
+            'z-index': 21,
+            display:"block",
+            top: 0,
+            left: 0});
+
         //
+
      
         document.body.appendChild(this.div);
+
         this.tl.to(this.div, 0.5, {
             opacity: 1
         })
         .to(this.div.children[0],1,{
             opacity:1
+        })
+        .to(this.svg, 1,{
+            opacity:1,
+            onComplete:()=>{
+                this.rotate();
+            }
+            
         });
 
         this.created=true;
@@ -52,7 +76,16 @@ export default class Zaglushka {
     }
 
     rotate() {
-
+            var tail = document.querySelector("#tail");
+            var group = document.querySelector("#group_logo");
+            this.tl.to(tail,1,{
+                yPercent:50,
+                xPercent:-50
+            }).
+            to(group,1,{
+                rotate:90,
+                transformOrigin:"60% 50%"
+            },"-=1");
     }
 
     loading() {

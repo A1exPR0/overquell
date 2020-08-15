@@ -20575,46 +20575,75 @@ var Zaglushka = /*#__PURE__*/function () {
     this.div_id = "zagl_div";
     this.div.id = this.div_id;
     this.created = true; // console.log("constructor running ...");
-
-    this.div.style.backgroundColor = "#191919";
-    this.div.style.position = "absolute";
-    this.div.style.width = "100vw";
-    this.div.style.height = "100vh";
-    this.div.style.zIndex = "20";
-    this.div.style.opacity = "0";
-    this.div.style.top = "0";
-    this.div.style.left = "0";
-    var h3 = document.createElement("h3");
-    h3.style.textAlign = "center";
-    h3.style.fontSize = "5rem";
-    h3.style.lineHeight = "100vh";
-    h3.style.opacity = 0;
-    h3.innerText = "Переверните устройство";
-    this.div.appendChild(h3); // return true;
+    // this.div.appendChild(this.svg);
+    // return true;
   }
 
   _createClass(Zaglushka, [{
     key: "show",
     value: function show() {
-      //
+      var _this = this;
+
+      this.div.style.backgroundColor = "#191919";
+      this.div.style.position = "absolute";
+      this.div.style.width = "100vw";
+      this.div.style.height = "100vh";
+      this.div.style.zIndex = "20";
+      this.div.style.opacity = "0";
+      this.div.style.top = "0";
+      this.div.style.left = "0";
+      var h3 = document.createElement("h3");
+      h3.style.textAlign = "center";
+      h3.style.fontSize = "5rem";
+      h3.style.lineHeight = "100vh";
+      h3.style.opacity = 0;
+      h3.innerText = "Переверните устройство";
+      this.div.appendChild(h3); //create svg
+
+      this.svg = new _svg.SVG("#logo_for_zagl");
+      console.log(this.svg);
+      this.svg.opacity(0);
+      this.svg.css({
+        position: "absolute",
+        'z-index': 21,
+        display: "block",
+        top: 0,
+        left: 0
+      }); //
+
       document.body.appendChild(this.div);
       this.tl.to(this.div, 0.5, {
         opacity: 1
       }).to(this.div.children[0], 1, {
         opacity: 1
+      }).to(this.svg, 1, {
+        opacity: 1,
+        onComplete: function onComplete() {
+          _this.rotate();
+        }
       });
       this.created = true; // return div.id;
     }
   }, {
     key: "rotate",
-    value: function rotate() {}
+    value: function rotate() {
+      var tail = document.querySelector("#tail");
+      var group = document.querySelector("#group_logo");
+      this.tl.to(tail, 1, {
+        yPercent: 50,
+        xPercent: -50
+      }).to(group, 1, {
+        rotate: 90,
+        transformOrigin: "60% 50%"
+      }, "-=1");
+    }
   }, {
     key: "loading",
     value: function loading() {}
   }, {
     key: "hide",
     value: function hide() {
-      var _this = this;
+      var _this2 = this;
 
       // var div=document.querySelector("#"+div_id);
       console.log(this.div);
@@ -20623,9 +20652,9 @@ var Zaglushka = /*#__PURE__*/function () {
       }).to(this.div, 1, {
         opacity: 0,
         onComplete: function onComplete() {
-          _this.div.remove();
+          _this2.div.remove();
 
-          _this.created = false;
+          _this2.created = false;
         }
       });
     }
@@ -20868,7 +20897,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "63458" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49920" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
