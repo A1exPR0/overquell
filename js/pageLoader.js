@@ -507,11 +507,11 @@ class PageLoader {
             if (all_navs[i].className != active_nav.className) {
                 if (all_navs[i].className === "top_nav") {
                     inactive_nav_id = i;
-                    inactive_nav_direction = "down";
+                    inactive_nav_direction = "up";
                 }
                 if (all_navs[i].className === "bottom_nav") {
                     inactive_nav_id = i;
-                    inactive_nav_direction = "up";
+                    inactive_nav_direction = "down";
                 }
             }
 
