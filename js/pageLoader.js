@@ -441,11 +441,11 @@ class PageLoader {
         //
         //Gallery
         // console.log("HIDE");
-        if (pathname === "/gallery.html") {
-            gsap.to(".gallery_img", 0.1, {
-                opacity: 0
-            });
-        }
+        // if (pathname === "/gallery.html") {
+        //     gsap.to(".gallery_img", 0.1, {
+        //         opacity: 0
+        //     });
+        // }
         //
         //Index
 

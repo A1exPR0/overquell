@@ -2,13 +2,17 @@ import Highway from "@dogstudio/highway";
 // import Slide_l from "./Transitions/Slide_l"
 // import Slide_r from "./Transitions/Slide_r"
 // import Slide_up from "./Transitions/Slide_up"
+import Slide_l from "./Transitions/slide3/Slide_l"
+import Slide_r from "./Transitions/slide3/Slide_r"
+import Slide_up from "./Transitions/slide3/Slide_up"
 // import Slide_d from "./Transitions/Slide_d"
-// import Fade from "./Transitions/Fade";
-import Blur_svg_slide_down from "./Transitions/Blur_svg_slide_down";
-import Blur_svg_slide_r from "./Transitions/Blur_svg_slide_r";
-import Blur_svg_slide_l from "./Transitions/Blur_svg_slide_l";
-import Blur_svg_slide_up from "./Transitions/Blur_svg_slide_up";
-import Blur_svg_slide from "./Transitions/Blur_svg_slide_l";
+import Slide_d from "./Transitions/slide3/Slide_d"
+import Fade from "./Transitions/Fade";
+// import Blur_svg_slide_down from "./Transitions/Blur_svg_slide_down";
+// import Blur_svg_slide_r from "./Transitions/Blur_svg_slide_r";
+// import Blur_svg_slide_l from "./Transitions/Blur_svg_slide_l";
+// import Blur_svg_slide_up from "./Transitions/Blur_svg_slide_up";
+// import Blur_svg_slide from "./Transitions/Blur_svg_slide_l";
 import PageLoader from "./pageLoader";
 import gsap from "gsap/gsap-core";
 import {
@@ -20,12 +24,12 @@ import Zaglushka from "./zaglushka"
 
 const H = new Highway.Core({
     transitions: {
-        default: Blur_svg_slide,
+        default: Fade,
         contextual: {
-            left: Blur_svg_slide_l,
-            right: Blur_svg_slide_r,
-            down: Blur_svg_slide_down,
-            up: Blur_svg_slide_up
+            left: Slide_l,
+            right: Slide_r,
+            down: Slide_d,
+            up: Slide_up
         }
     }
 });
@@ -79,7 +83,8 @@ H.on('NAVIGATE_END', ({
 }) => {
     // console.log("NAVIGATE END");
     // manageScripts(to);
-    PL.loadPage(location.pathname);
+    PL.updateDirections(location.pathname);
+    // PL.loadPage(location.pathname);
     
 });
 H.on('NAVIGATE_IN', ({
