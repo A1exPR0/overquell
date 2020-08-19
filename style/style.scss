@@ -195,8 +195,10 @@ main {
         width: 100%;
         position: absolute;
         top: 0;
+        overflow: hidden;
 
         &::after {
+            transition: 0.5;
             top: -50vh;
             left: -50vw;
             width: 200%;
@@ -209,7 +211,8 @@ main {
 
         &.moving::after{
             opacity: 0;
-
+            transition:0.5s;
+            animation: fade 0.5s;
         }
 
         //Filter
@@ -229,7 +232,14 @@ main {
     }
     
 }
-
+@keyframes fade{
+    0%{
+        opacity:0;
+    }
+    100%{
+        opacity:1;
+    }
+}
 .contacts {
     position: absolute;
     z-index: 15;

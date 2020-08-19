@@ -1,12 +1,12 @@
 import Highway from "@dogstudio/highway";
-// import Slide_l from "./Transitions/Slide_l"
-// import Slide_r from "./Transitions/Slide_r"
-// import Slide_up from "./Transitions/Slide_up"
-import Slide_l from "./Transitions/slide3/Slide_l"
-import Slide_r from "./Transitions/slide3/Slide_r"
-import Slide_up from "./Transitions/slide3/Slide_up"
-// import Slide_d from "./Transitions/Slide_d"
-import Slide_d from "./Transitions/slide3/Slide_d"
+import Slide_l from "./Transitions/Slide_l"
+import Slide_r from "./Transitions/Slide_r"
+import Slide_up from "./Transitions/Slide_up"
+import Slide_d from "./Transitions/Slide_d"
+// import Slide_l from "./Transitions/slide3/Slide_l"
+// import Slide_r from "./Transitions/slide3/Slide_r"
+// import Slide_up from "./Transitions/slide3/Slide_up"
+// import Slide_d from "./Transitions/slide3/Slide_d"
 import Fade from "./Transitions/Fade";
 // import Blur_svg_slide_down from "./Transitions/Blur_svg_slide_down";
 // import Blur_svg_slide_r from "./Transitions/Blur_svg_slide_r";
@@ -14,10 +14,10 @@ import Fade from "./Transitions/Fade";
 // import Blur_svg_slide_up from "./Transitions/Blur_svg_slide_up";
 // import Blur_svg_slide from "./Transitions/Blur_svg_slide_l";
 import PageLoader from "./pageLoader";
-import gsap from "gsap/gsap-core";
-import {
-    SVG
-} from "@svgdotjs/svg.js";
+// import gsap from "gsap/gsap-core";
+// import {
+//     SVG
+// } from "@svgdotjs/svg.js";
 import Zaglushka from "./zaglushka"
 
 
@@ -28,8 +28,8 @@ const H = new Highway.Core({
         contextual: {
             left: Slide_l,
             right: Slide_r,
-            down: Slide_d,
-            up: Slide_up
+            down: Slide_up,
+            up: Slide_d
         }
     }
 });
@@ -83,8 +83,8 @@ H.on('NAVIGATE_END', ({
 }) => {
     // console.log("NAVIGATE END");
     // manageScripts(to);
-    PL.updateDirections(location.pathname);
-    // PL.loadPage(location.pathname);
+    // PL.updateDirections(location.pathname);
+    PL.loadPage(location.pathname);
     
 });
 H.on('NAVIGATE_IN', ({

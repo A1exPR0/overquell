@@ -17,9 +17,13 @@ class Slide_d extends Highway.Transition {
         from,
         done
     }) {
-        const dur = 1;
+        const dur = 2;
         const offset = "-=" + dur;
-        const my_ease = "power2.in";
+        const my_ease = "power3.inOut";
+        
+        // var sec = document.querySelectorAll("section");
+        // sec[1].classList.add("moving");
+        
         // to.addClassName("moving");
         // var el = document.querySelectorAll(to);
         // console.log(el);
@@ -50,7 +54,7 @@ class Slide_d extends Highway.Transition {
                     yPercent: -100,
                     ease: my_ease,
                     onComplete: () => {
-
+                        // sec[1].classList.remove("moving");
                         //UNCOMENT TO RETURN LOADER 
                         // loader.remove();
                         from.remove();
