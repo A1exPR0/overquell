@@ -57,6 +57,13 @@ window.onload = function () {
 
 }
 
+//listen for updating links in gallery
+document.addEventListener("update-links",function (e){
+    // H.attach(e.node);
+    H.attach(e.detail.nodes);
+});
+
+
 //Managing link styles
 // Listen the `NAVIGATE_IN` event
 // This event is sent everytime a `data-router-view` is added to the DOM Tree

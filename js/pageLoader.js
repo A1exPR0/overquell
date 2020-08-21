@@ -171,37 +171,117 @@ class PageLoader {
         if (pathname === "/gallery.html") {
             // console.log("this is gallery - END");
 
-
-
+            //adding transition context to works
             var works = document.querySelectorAll(".work_in_gallery");
             works.forEach((work) => {
-                work.addEventListener("click", () => {
-                    console.log("You clicked a work!");
-                    window.location.replace("/work.html");
-                })
+                work.setAttribute("data-transition", "down");
 
             })
+            console.log(works);
+            //animating works scroll
+
+            //add eventlistener s
+            var arrows = document.querySelectorAll(".arrow");
+            var works_grid = document.querySelector(".gallery_grid");
+
+            console.log(arrows);
+            arrows.forEach((arrow) => {
+                if (arrow.classList.contains("left")) {
+                    // console.log("this is left arrow");
+                    arrow.addEventListener("click", () => {
+                        console.log("you clicked left arrow");
+                        gsap.from(works_grid, 1, {
+                            xPercent: "-=25.6",
+                            ease: "power3.inOut",
+                            clearProps: "xPercent",
+                            onStart: () => {
+                                var node_list = [];
+                                for (let i = 2; i > 0; i--) {
+                                    var new_work = works[works.length - (i)].cloneNode(true)
+                                    works_grid.insertBefore(new_work, works[0]);
+                                    node_list.push(new_work);
+                                }
+
+                                var update_links_event = new CustomEvent("update-links", {
+                                    detail: {
+                                        nodes: node_list
+                                    }
+                                });
+                                document.dispatchEvent(update_links_event);
+
+                            },
+                            onComplete: () => {
+                                for (let i = 2; i > 0; i--) {
+                                    works[works.length - (i)].remove();
+                                }
+                                works = document.querySelectorAll(".work_in_gallery");
+                                console.log(works);
+
+                            }
+                        });
 
 
-            var imgs=document.querySelectorAll(".gallery_img");
-            imgs.forEach((img)=>{
-                img.style.transform="scale(0.2)";
+                    });
+                }
+                if (arrow.classList.contains("right")) {
+                    // console.log("this is right arrow");
+                    arrow.addEventListener("click", () => {
+                        console.log("you clicked right arrow");
+
+                        gsap.to(works_grid, 1, {
+                            xPercent: "-=25.6",
+                            ease: "power3.inOut",
+                            clearProps: "xPercent",
+                            onStart:()=>{
+                                 var node_list = [];
+                                 for (let i = 0; i < 2; i++) {
+                                     var new_work = works[i].cloneNode(true)
+                                     works_grid.appendChild(new_work);
+                                     node_list.push(new_work);
+
+                                 }
+
+                                 var update_links_event = new CustomEvent("update-links", {
+                                     detail: {
+                                         nodes: node_list
+                                     }
+                                 });
+                                 document.dispatchEvent(update_links_event);
+                            },
+                            onComplete: () => {
+                                for (let i = 0; i < 2; i++) {
+                                    works[i].remove();
+                                }
+                                works = document.querySelectorAll(".work_in_gallery");
+                                console.log(works);
+
+                            }
+
+                        });
+
+                    });
+                }
+            });
+            //move container
+
+            //check the edge
+
+
+
+
+            var imgs = document.querySelectorAll(".gallery_img");
+            imgs.forEach((img) => {
+                img.style.transform = "scale(0.2)";
             })
             tl.fromTo(".gallery_img", 1, {
                 opacity: 0,
-                x: -40,
-                y: -40,
                 scale: 0.2
             }, {
                 opacity: 1,
-                x: 0,
-                y: 0,
-                // stagger: {
-                //     amount: 0.5
-                // },
+
                 scale: 1,
-                // ease:"power2"
-                // clearProps: "scale"
+                ease:"power2.inOut",
+                clearProps: "scale"
             });
             var imgs = document.querySelectorAll(".gallery_img");
             imgs.forEach((img) => {
@@ -264,6 +344,7 @@ class PageLoader {
 
             }
             span.remove();
+            div2.remove();
             gsap.to(div, 1, {
                 opacity: 0.3
             });
@@ -416,11 +497,11 @@ class PageLoader {
                     }, {
                         opacity: 0,
                         yPercent: 200,
-                        onComplete:()=>{
-                            team_btn.remove();      
+                        onComplete: () => {
+                            team_btn.remove();
                         }
                     });
-                    
+
                 });
                 document.querySelector("section").appendChild(team_btn);
 
