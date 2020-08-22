@@ -51,22 +51,46 @@
     <main data-router-wrapper>
         <section data-router-view="about" class="about">
             <div class="cover_container">
-                <img src="./img/BGs/bg_about.jpg" alt="" srcset="">
+                <img src="./img/simpsons/full_small.jpg" alt="" srcset="">
             </div>
             <div id="team_container">
-                <div class="team_member" id="gregory">
-                    <h2>Grigory<br />Shmakov</h2>
-                    <h4>Executive Producer</h4>
-                </div>
-                <div class="team_member" id="vladimir">
-                    <h2>Vladimir<br>Masyukov</h2>
-                    <h4>Line Producer</h4>
-                </div>
-                <div class="team_member" id="pavel">
-                    <h2>Pavel<br>Samsonov</h2>
-                    <h4>DOP, editor</h4>
-                </div>
-                <h4 id="clients_btn"><a href="#">Наши клиенты</a></h4>
+                <div class="gradient_fade"></div>
+                <a href="#" data-router-disabled class="team_member" id="gregory"
+                    style="margin-bottom: 45vh; margin-left: 15vw">
+                    <div>
+                        <h2>Grigory<br />Shmakov</h2>
+                        <h4>Executive Producer</h4>
+                    </div>
+                    <p id="gregory_about">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque tempore ipsam iusto soluta
+                        a, ratione culpa vitae repellendus iste possimus ullam amet veniam, aspernatur dolores odio
+                        voluptates exercitationem. Tempore, maxime!</p>
+                </a>
+                <a href="#" data-router-disabled class="team_member" id="vladimir"
+                    style="margin-bottom: 15vh; margin-left: 75vw">
+                    <div>
+                        <h2>Vladimir<br>Masyukov</h2>
+                        <h4>Line Producer</h4>
+                    </div>
+                    <p id="vladimir_about" style="top:-200%;left:0%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque tempore ipsam iusto soluta
+                        a, ratione culpa
+                        vitae repellendus iste possimus ullam amet veniam, aspernatur dolores odio voluptates
+                        exercitationem. Tempore,
+                        maxime!</p>
+                </a>
+                <a href="#" data-router-disabled class="team_member" id="pavel"
+                    style="margin-bottom: 55vh; margin-left: 50vw">
+                    <div>
+                        <h2>Pavel<br>Samsonov</h2>
+                        <h4>DOP, editor</h4>
+                    </div>
+                    <p id="pavel_about" style="top:0%;left:-100%">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Doloremque
+                        tempore ipsam iusto soluta a, ratione culpa
+                        vitae repellendus iste possimus ullam amet veniam, aspernatur dolores odio voluptates
+                        exercitationem. Tempore,
+                        maxime!</p>
+                </a>
+                <h4 id="clients_btn" style="margin-bottom: 10vh; margin-left: 40vw"><a href="#">Наши клиенты</a></h4>
+                <div class="gradient_fade"></div>
             </div>
             <div class="clients_container">
                 <h2>Наши клиенты</h2>
@@ -88,7 +112,7 @@
                     </div>
                 </div>
             </div>
-            <svg id="yellow_filter">
+            <!-- <svg id="yellow_filter">
                 <filter id="yellow" x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox"
                     primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
                     <feFlood flood-color="#F8BA01" flood-opacity="1" x="0%" y="0%" width="100%" height="100%"
@@ -98,7 +122,7 @@
                     <feComposite in="blend" in2="SourceAlpha" operator="in" x="0%" y="0%" width="100%" height="100%"
                         result="composite1" />
                 </filter>
-            </svg>
+            </svg> -->
         </section>
     </main>
 

@@ -209,9 +209,9 @@ main {
             animation: grain 0.5s steps(6) infinite;
         }
 
-        &.moving::after{
+        &.moving::after {
             opacity: 0;
-            transition:0.5s;
+            transition: 0.5s;
             animation: fade 0.5s;
         }
 
@@ -223,23 +223,26 @@ main {
             text-align: center;
             top: 0;
             position: absolute;
-            margin-top:50vh;
+            margin-top: 50vh;
             color: $slightly_white;
             font-size: 6rem;
             z-index: 5;
             margin-left: 20vw;
         }
     }
-    
+
 }
-@keyframes fade{
-    0%{
-        opacity:0;
+
+@keyframes fade {
+    0% {
+        opacity: 0;
     }
-    100%{
-        opacity:1;
+
+    100% {
+        opacity: 1;
     }
 }
+
 .contacts {
     position: absolute;
     z-index: 15;
@@ -429,9 +432,10 @@ main {
         position: relative;
         transition: 0.5s;
         overflow: hidden;
-        color:$slightly_white;
-        &:visited{
-            color:$slightly_white;
+        color: $slightly_white;
+
+        &:visited {
+            color: $slightly_white;
         }
 
         &:hover {
@@ -1004,15 +1008,37 @@ section .work {
 
 //About
 .about {
-    width:100vw;
-    height:100vh;
+    width: 100vw;
+    height: 100vh;
+
     #team_container {
         display: block;
-            width: 100%;
-            height: 100%;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        .gradient_fade:first-of-type {
+            background-image: linear-gradient(to top, rgba(25, 25, 25, 0), #191919);
+            width: 100vw;
             position: absolute;
+            z-index: 3;
+            height: 20vh;
             top: 0;
             left: 0;
+            margin:0 0 auto 0;
+        }
+        .gradient_fade:last-of-type{
+            background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0), #191919);
+            width: 100vw;
+            position: absolute;
+            z-index: 3;
+            height: 20vh;
+            bottom: 0;
+            left: 0;
+            margin: auto 0 0 0;
+        }
     }
 
     .cover_container {
@@ -1024,14 +1050,15 @@ section .work {
             width: 100%;
             height: 100%;
             background-color: $slightly_black;
-            opacity: 0.1;
+            opacity: 0.3;
             position: absolute;
             z-index: 3;
             content: "";
         }
 
         img {
-            filter: url("#yellow");
+            // filter: url("#yellow");
+
             width: 100vw;
             height: 100vh;
             object-fit: cover;
@@ -1042,12 +1069,22 @@ section .work {
     }
 
     .team_member {
+        display: block;
         position: absolute;
         z-index: 5;
         text-transform: uppercase;
         // top:0;
-        bottom:0;
-        left:0;
+        bottom: 0;
+        left: 0;
+        text-decoration:none;
+        // transition:0.2s transform;
+        &:visited{
+            color: $slightly_white;
+        }
+        // &:hover{
+        //     transform:scale(1.1);
+        //     transition:0.2s transform ;
+        // }
 
         h2 {
             clip-path: inset(0px 0px 0px 6%);
@@ -1061,34 +1098,42 @@ section .work {
             font-size: 1.5rem;
             font-weight: 200;
         }
+        p{
+            display:none;
+            position:absolute;
+            width:40vw;
+            font-size:1.5rem;
+            opacity: 0;
+        }
 
     }
 
     #pavel {
         // margin-top: 55vh;
-        margin-bottom: 35vh;
-        margin-left: 77vw;
+        // margin-bottom: 35vh;
+        // margin-left: 77vw;
     }
 
     #gregory {
         // margin-top: 35vh;
-        margin-bottom:50vh;
-        margin-left: 16vw;
+        // margin-bottom:50vh;
+        // margin-left: 16vw;
     }
 
     #vladimir {
         // margin-top: 67vh;
-        margin-bottom: 25vh;
-        margin-left: 43vw;
+        // margin-bottom: 25vh;
+        // margin-left: 43vw;
     }
 
     #clients_btn,
     #team_btn {
         position: absolute;
         z-index: 5;
-        margin-bottom: 15vw;
-        bottom:0;
-        left:10vw;
+        // margin-bottom: 15vw;
+        bottom: 0;
+        // margin-left:10vw;
+        left: 0;
         // width: 100%;
         text-align: left;
 
@@ -1100,6 +1145,7 @@ section .work {
             text-transform: uppercase;
             display: block;
             transition: 0.2s;
+
             &:hover,
             &.active {
                 color: transparent;
@@ -1113,6 +1159,7 @@ section .work {
 
     #team_btn {
         top: 15vh;
+        left: 10vw;
         bottom: unset;
     }
 
@@ -1126,8 +1173,8 @@ section .work {
         display: flex;
         flex-direction: column;
         align-content: center;
-        transform:translate(0,100%);
-        opacity:0;
+        transform: translate(0, 100%);
+        opacity: 0;
 
         h2 {
             font-size: 2rem;
@@ -1147,13 +1194,13 @@ section .work {
             display: flex;
             width: 70vw;
             position: absolute;
-            top:40vh;
+            top: 40vh;
             // margin: 30vh 15vw;
-            flex-wrap:wrap;
+            flex-wrap: wrap;
             // justify-content: center;
             // align-content:center;
-            align-self:center;
-            
+            align-self: center;
+
 
             .client_wrapper {
                 max-width: 100px;
@@ -1161,13 +1208,13 @@ section .work {
                 margin: auto;
                 width: 40vw;
                 // height:30vh;
-                opacity:0.9;
-                transition:0.2s;
+                opacity: 0.9;
+                transition: 0.2s;
 
-                &:hover{
-                    transition:0.2s;
-                    opacity:1;
-                    transform:scale(1.2);
+                &:hover {
+                    transition: 0.2s;
+                    opacity: 1;
+                    transform: scale(1.2);
                 }
 
                 img {
