@@ -168,7 +168,7 @@ class PageLoader {
 
 
         // GALERY
-        if (pathname === "/gallery.html") {
+        if (pathname === "/gallery.html" || pathname === "/commercial.html" || pathname === "/live.html") {
             // console.log("this is gallery - END");
 
             //adding transition context to works
@@ -522,7 +522,7 @@ class PageLoader {
         //
         //Gallery
         // console.log("HIDE");
-        if (pathname === "/gallery.html") {
+        if (pathname === "/gallery.html" || pathname === "/commercial.html" || pathname === "/live.html") {
             gsap.to(".gallery_img", 0.1, {
                 opacity: 0
             });
