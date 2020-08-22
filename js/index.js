@@ -20,8 +20,6 @@ import PageLoader from "./pageLoader";
 // } from "@svgdotjs/svg.js";
 import Zaglushka from "./zaglushka"
 
-
-
 const H = new Highway.Core({
     transitions: {
         default: Fade,
