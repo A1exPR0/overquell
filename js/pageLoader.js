@@ -6,7 +6,7 @@ import {
     SVG
 } from "@svgdotjs/svg.js"
 import Player from "@vimeo/player";
-import Highway from "@dogstudio/highway";
+import Parallax from "parallax-js";
 
 
 class PageLoader {
@@ -51,8 +51,8 @@ class PageLoader {
         var player_div = document.createElement("div");
         player_div.id = "vimeo_fullscreen";
         //for testing
-        var h1 = document.createElement("h1");
-        h1.innerHTML = name;
+        // var h1 = document.createElement("h1");
+        // h1.innerHTML = name;
 
         //draw custom controls
         // var draw_controls=SVG().addTo(player_div).size(40,40);
@@ -61,18 +61,18 @@ class PageLoader {
         // line.style.cssText="position:absolute";
 
 
-        player_div.appendChild(h1);
+        // player_div.appendChild(h1);
         document.querySelector("body").appendChild(player_div);
         var width = document.documentElement.clientWidth;
         var height = document.documentElement.clientHeight;
-        height -= h1.offsetHeight;
+        // height -= h1.offsetHeight;
         var vimeo_options = {
             id: id,
             width: width,
             height: height,
             autoplay: true,
             color: "F8BA01",
-            controls: false
+            controls: true
 
         };
 
@@ -262,12 +262,8 @@ class PageLoader {
                     });
                 }
             });
-            //move container
 
-            //check the edge
-
-
-
+            //animation of images appearance
 
             var imgs = document.querySelectorAll(".gallery_img");
             imgs.forEach((img) => {
@@ -288,8 +284,23 @@ class PageLoader {
                 img.className += " transition05";
             });
         }
+
         //INDEX
         if (pathname === "/index.html" || pathname === "/") {
+
+            //animate play_btn hover
+            var pl_btn = document.querySelector(".play_btn");
+            pl_btn.addEventListener("mouseover", () => {
+                gsap.to(pl_btn, 0.2, {
+                    scale: 1.1
+                });
+            });
+            pl_btn.addEventListener("mouseout", () => {
+                gsap.to(pl_btn, 0.2, {
+                    scale: 1
+                });
+            });
+           
             var logo = document.querySelector(".main_logo");
             // console.log("this is Index - END");
             tl.fromTo(logo.children, 0.5, {
@@ -301,7 +312,7 @@ class PageLoader {
                     x: '-=500',
                     // y: 0,
                     stagger: 0.1
-                })
+                },0.5)
                 .fromTo(".play_btn", 0.7, {
                         scale: 0.4,
                         ease: 'power2.out',
@@ -310,7 +321,20 @@ class PageLoader {
                         scale: 1,
                         opacity: 1
                     },
-                    "-=1");
+                    0.5)
+                .fromTo(".cover img:not(#dont_move)",1,{
+                    yPercent:50,
+                    opacity:0
+                },{
+                    yPercent:0,
+                    opacity: 1, 
+                    stagger: 0.1,
+                    onComplete:()=>{
+                        console.log("init parralax");
+                         var scene = document.querySelector(".cover");
+                         var parallax = new Parallax(scene);
+                    }
+                },0);
         }
 
         //WORK
@@ -656,6 +680,8 @@ class PageLoader {
 
         //uncomment for multi directional slides
         this.updateDirections(pathname);
+
+
         return true;
     }
 
@@ -678,6 +704,13 @@ class PageLoader {
             });
             gsap.to(".play_btn", 0.01, {
                 opacity: 0
+            });
+            var cover_imgs=document.querySelectorAll(".cover img:not(#dont_move)");
+            
+            cover_imgs.forEach(element => {
+                console.log("setting up opacity");
+                element.style.opacity=0;
+                
             });
         }
 

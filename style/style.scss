@@ -309,7 +309,7 @@ main {
         width: 100%;
         height: 100%;
         background-color: black;
-        opacity: 0.6;
+        opacity: 0.3;
         display: block;
         position: absolute;
         top: 0;
@@ -321,7 +321,12 @@ main {
         height: 100%;
         object-fit: cover;
         object-position: center center;
+        position: absolute;
+        // &:not(#dont_move){
+        //     // transform:scale(1.2);
+        // }
     }
+
 }
 
 .main_logo {
@@ -342,7 +347,7 @@ main {
     }
 
     .under_logo {
-        color: $slightly_black;
+        color: $yellow;
         font-size: 6vw;
         transform: translateX(-5%);
         clip-path: inset(0px 0px 0px 5%);
@@ -360,6 +365,7 @@ main {
     width: 7vw;
     z-index: 3;
     cursor: pointer;
+    
 
 }
 
@@ -1108,23 +1114,23 @@ section .work {
 
     }
 
-    #pavel {
-        // margin-top: 55vh;
-        // margin-bottom: 35vh;
-        // margin-left: 77vw;
-    }
+    // #pavel {
+    //     // margin-top: 55vh;
+    //     // margin-bottom: 35vh;
+    //     // margin-left: 77vw;
+    // }
 
-    #gregory {
-        // margin-top: 35vh;
-        // margin-bottom:50vh;
-        // margin-left: 16vw;
-    }
+    // #gregory {
+    //     // margin-top: 35vh;
+    //     // margin-bottom:50vh;
+    //     // margin-left: 16vw;
+    // }
 
-    #vladimir {
-        // margin-top: 67vh;
-        // margin-bottom: 25vh;
-        // margin-left: 43vw;
-    }
+    // #vladimir {
+    //     // margin-top: 67vh;
+    //     // margin-bottom: 25vh;
+    //     // margin-left: 43vw;
+    // }
 
     #clients_btn,
     #team_btn {

@@ -43,8 +43,6 @@ window.onload = function () {
     //if landscape load page
     
     PL.loadPage(document.location.pathname);
-
-
 }
 
 //listen for updating links in gallery
