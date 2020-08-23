@@ -322,9 +322,10 @@ main {
         object-fit: cover;
         object-position: center center;
         position: absolute;
-        // &:not(#dont_move){
-        //     // transform:scale(1.2);
-        // }
+        &:not(#dont_move){
+            opacity:0;
+            margin-top:5vh;
+        }
     }
 
 }
@@ -341,12 +342,15 @@ main {
     justify-content: center;
     align-items: left;
     z-index: 2;
+    
 
     .logo {
         width: 19vw;
+        opacity: 0;
     }
 
     .under_logo {
+        opacity: 0;
         color: $yellow;
         font-size: 6vw;
         transform: translateX(-5%);
@@ -365,6 +369,7 @@ main {
     width: 7vw;
     z-index: 3;
     cursor: pointer;
+    opacity:0;
     
 
 }
@@ -642,6 +647,7 @@ section .work {
         text-align: left;
         font-size: 3vw;
         transition: 0.5s;
+        opacity: 0;
     }
 
     .project {
@@ -652,6 +658,7 @@ section .work {
         text-align: right;
         font-size: 3vw;
         transition: 0.5s;
+        opacity: 0;
     }
 
     .play_btn {
@@ -739,7 +746,7 @@ section .work {
     // padding:10px 20px;
     right: 0;
     z-index: 3;
-    overflow-x: hidden;
+    
 
     /* width */
     ::-webkit-scrollbar {
@@ -805,9 +812,14 @@ section .work {
         font-size: 1.2rem;
         font-weight: 300;
         line-height: 2rem;
-        padding:1vw 0 0 1.6vw;
+        padding:0 0 0 1.6vw;
         color:$slightly_white;
         opacity: 0.7;
+        width: 100%;
+        overflow-x: hidden;
+        overflow-y:scroll;
+        height:80%;
+        margin:3% 0;
     }
 
     .backstage {
@@ -845,10 +857,11 @@ section .work {
     .credits {
         display: none;
         width: 100%;
-        padding: 2vw 0 0 1.6vw;
+        padding: 0 0 0 1.6vw;
         overflow: scroll;
         height: 80%;
         overflow-x: hidden;
+        margin:5% 0;
 
 
         .credits_grid {

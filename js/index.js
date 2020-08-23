@@ -59,7 +59,9 @@ const links = document.querySelectorAll('nav a');
 H.on('NAVIGATE_OUT', ({
     location
 }) => {
+    // console.log(location.pathname);
     // Check Active Link
+    if(location.pathname!="/work.html"){
     for (var i = 0; i < links.length; i++) {
         const link = links[i];
 
@@ -70,7 +72,7 @@ H.on('NAVIGATE_OUT', ({
         if (link.href === location.href) {
             link.classList.add('active');
         }
-    }
+    }}
 });
 
 H.on('NAVIGATE_END', ({

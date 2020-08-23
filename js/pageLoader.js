@@ -200,6 +200,7 @@ class PageLoader {
                                     var new_work = works[works.length - (i)].cloneNode(true)
                                     works_grid.insertBefore(new_work, works[0]);
                                     node_list.push(new_work);
+                                    arrow.style.pointerEvents="none";
                                 }
 
                                 var update_links_event = new CustomEvent("update-links", {
@@ -216,6 +217,7 @@ class PageLoader {
                                 }
                                 works = document.querySelectorAll(".work_in_gallery");
                                 console.log(works);
+                                arrow.style.pointerEvents = "auto";
 
                             }
                         });
@@ -232,12 +234,14 @@ class PageLoader {
                             xPercent: "-=25.6",
                             ease: "power3.inOut",
                             clearProps: "xPercent",
+                            
                             onStart:()=>{
                                  var node_list = [];
                                  for (let i = 0; i < 2; i++) {
                                      var new_work = works[i].cloneNode(true)
                                      works_grid.appendChild(new_work);
                                      node_list.push(new_work);
+                                     arrow.style.pointerEvents = "none";
 
                                  }
 
@@ -254,6 +258,8 @@ class PageLoader {
                                 }
                                 works = document.querySelectorAll(".work_in_gallery");
                                 console.log(works);
+                                arrow.style.pointerEvents = "auto";
+
 
                             }
 
@@ -359,7 +365,7 @@ class PageLoader {
             for (let i = 0; i < num_rows; i++) {
                 var new_div = document.createElement("div");
                 div.appendChild(new_div);
-                console.log("break");
+                // console.log("break");
                 for (let j = 0; j < num_cols; j++) {
                     var new_span = document.createElement("span");
                     new_span.innerHTML = span.innerHTML;
@@ -372,6 +378,8 @@ class PageLoader {
             gsap.to(div, 1, {
                 opacity: 0.3
             });
+            gsap.to(".play_btn",0.5,{opacity:1});
+            gsap.to(".work h1",1,{opacity:1});
 
             var buttons = document.querySelectorAll("button");
             buttons.forEach((button) => {
@@ -480,7 +488,7 @@ class PageLoader {
                 // console.log(member);
                 var id=member.id;
                 member.addEventListener("click", ()=>{
-                    console.log(id);
+                    // console.log(id);
                     var tl = new TimelineLite;
                     //create close btn
                     var draw = new SVG().addTo("#team_container").size(70, 70);
@@ -497,6 +505,7 @@ class PageLoader {
                         opacity:1,
                         cursor:"pointer"
                     });
+                    tl.to(clients_btn,1,{opacity:0,pointerEvents:"none"},0);
                     draw.click(() => {
                         tl.reverse();
                         gsap.to(".close_btn", 1, {
@@ -510,16 +519,16 @@ class PageLoader {
                             tl.to(".cover_container img", 1, {
                                 // yPercent: 0,
                                 scale: 1.5,
-                                onComplete: console.log("scaled to pasha")
+                                // onComplete: console.log("scaled to pasha")
                             },0)
                             .to(".team_member:not(#"+id+")",1,{
                                 opacity: 0,
-                                onComplete: console.log("hide others")
+                                // onComplete: console.log("hide others")
                                 
                             },0)
                             .to("#"+id+" div",0.5,{
                                 xPercent: 50,
-                                onComplete: console.log("moved pasha")
+                                // onComplete: console.log("moved pasha")
                             },1)
                                 .to("#" + id,0.1,{
 
@@ -538,16 +547,16 @@ class PageLoader {
                                 xPercent:20,
                                 yPercent:-20,
                                 scale: 1.5,
-                                onComplete: console.log("scaled to pasha")
+                                // onComplete: console.log("scaled to pasha")
                             }, 0)
                                 .to(".team_member:not(#" + id + ")", 1, {
                                     opacity: 0,
-                                    onComplete: console.log("hide others")
+                                    // onComplete: console.log("hide others")
 
                                 }, 0)
                                 .to("#" + id + " div", 0.5, {
-                                    yPercent: 150,
-                                    onComplete: console.log("moved pasha")
+                                    xPercent: 150,
+                                    // onComplete: console.log("moved pasha")
                                 }, 1)
                                 .to("#" + id, 0.1, {
 
@@ -555,7 +564,7 @@ class PageLoader {
                                 }, 0)
                                 .to("#" + id + " p", 0.5, {
                                     display: "block",
-                                    yPercent: -150,
+                                    yPercent: -170,
                                     opacity: 1
                                 }, 1);
                             break;
@@ -569,15 +578,14 @@ class PageLoader {
                             }, 0)
                                 .to(".team_member:not(#" + id + ")", 1, {
                                     opacity: 0,
-                                    onComplete: console.log("hide others")
+                                    // onComplete: console.log("hide others")
 
                                 }, 0)
                                 .to("#" + id + " div", 0.5, {
                                     yPercent: -150,
-                                    onComplete: console.log("moved pasha")
+                                    // onComplete: console.log("moved pasha")
                                 }, 1)
                                 .to("#" + id, 0.1, {
-
                                     pointerEvents: "none",
                                 }, 0)
                                 .to("#" + id + " p", 0.5, {
@@ -638,32 +646,32 @@ class PageLoader {
                         yPercent: 0,
                         pointerEvents: 'auto',
                         clearProps: "transform",
-                            onComplete: console.log("showed team members")
+                            // onComplete: console.log("showed team members")
                     });
                     gsap.to(clients_btn, 1, {
                         opacity: 1,
                         yPercent: 0,
                         pointerEvents: 'auto',
-                        onComplete: console.log("showed clients btn")
+                        // onComplete: console.log("showed clients btn")
                     });
                     gsap.to(".cover_container img", 1, {
                         yPercent: 0,
                         scale: 1,
-                        onComplete: console.log("scale of cover restored")
+                        // onComplete: console.log("scale of cover restored")
                     });
 
                     //hide clients
                     gsap.to(".clients_container", 1, {
                         opacity: 0,
                         yPercent: 20,
-                        onComplete: console.log("clients container hiden")
+                        // onComplete: console.log("clients container hiden")
                     });
                     gsap.to(team_btn, 1, {
                         opacity: 0,
                         yPercent: 200,
                         onComplete: () => {
                             team_btn.remove();
-                            console.log("team btn hidden and killed");
+                            // console.log("team btn hidden and killed");
                         }
                     });
 
@@ -721,7 +729,17 @@ class PageLoader {
 
         //Getting all links array
         var all_links = document.querySelectorAll('nav a');
-
+        if(pathname=="/work.html"){
+            all_links.forEach((link)=>{
+                if(link.parentElement.parentElement.parentElement.className=="top_nav"){
+                    link.setAttribute("data-transition", "up");
+                }
+                if(link.parentElement.parentElement.parentElement.className=="bottom_nav"){
+                    link.setAttribute("data-transition", "down");
+                }
+            });
+            return true;
+        }
         //Finding active nav 
         var active_nav;
         for (var i = 0; i < all_links.length; i++) {
