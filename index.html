@@ -7,6 +7,7 @@
     <title>OverQuell | Home</title>
     <link rel="stylesheet" href="./style/style.scss">
     <link rel="stylesheet" href="./node_modules/lightbox2/dist/css/lightbox.min.css">
+
 </head>
 
 <body>
@@ -27,7 +28,23 @@
             </div>
         </div>
     </noscript>
-    
+    <script>
+        
+        if(window.innerHeight>window.innerWidth){
+            console.log("portait mode");
+            //show div
+            var div=document.createElement("div");
+            div.style.backgroundColor="black";
+            div.style.zIndex=999;
+            div.style.position="absolute";
+            div.style.width="100vw";
+            div.style.height="100vh";
+            div.id="load_zagl_div";
+            document.body.appendChild(div);
+        }
+
+    </script>
+
     <div class="header_logo">
         <a href="./">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288.63 197.77">
@@ -123,6 +140,7 @@
     <script id="main-script" src="./js/index.js" data-no-reload></script>
     <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
     <!-- <div id="zagl_div" style="background-color: rgb(25, 25, 25);top:0;left:0; position: absolute; width: 100vw; height: 100vh; z-index: 20; opacity: 1;"></div> -->
+
 </body>
 
-</html>
+</html> 

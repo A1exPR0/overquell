@@ -26,11 +26,20 @@ const H = new Highway.Core({
 
 
 var orientation;
+const show_zagl = new CustomEvent("show-zagl");
+const load_page=new CustomEvent("load-page");
+
+document.addEventListener("load-page",()=>{
+    
+    
+});
 const Z = new Zaglushka();
 // console.log(Z);
 const PL = new PageLoader;
 window.onload = function () {
     orientation=getOrientation();
+
+            document.dispatchEvent(show_zagl);
     // console.log(Z);
     // check orintation
     if(orientation=="Landscape"){
@@ -51,7 +60,9 @@ document.addEventListener("update-links",function (e){
     H.attach(e.detail.nodes);
 });
 
-
+document.addEventListener("show-zagl",()=>{
+    console.log("I HAVE TO SHOW ZAGL");
+});
 //Managing link styles
 // Listen the `NAVIGATE_IN` event
 // This event is sent everytime a `data-router-view` is added to the DOM Tree
@@ -100,33 +111,33 @@ function getOrientation(){
 
 //     var new_orientation=getOrientation();
     
-      //проверка ориентации какая была
-        // if(new_orientation!=orientation)
-        // {
-        //     orientation=new_orientation;
+//     //   проверка ориентации какая была
+//         if(new_orientation!=orientation)
+//         {
+//             orientation=new_orientation;
 
-            //новая ориентация портрет
-            // if(new_orientation=="Portrait" && !Z.created){
-            //     Z.setSvgVertical();
-            //   Z.show();    
-            // }
+//             // новая ориентация портрет
+//             if(new_orientation=="Portrait" && !Z.created){
+//                 Z.setSvgVertical();
+//               Z.show();    
+//             }
 
-            // новая ориентация лэндскейп
-        //    if(new_orientation=="Landscape" && Z.created){
-        //        Z.hide();
-        //    }
+//             // новая ориентация лэндскейп
+//            if(new_orientation=="Landscape" && Z.created){
+//                Z.hide();
+//            }
          
-        // }
+//         }
 
 
-    // если ориентация изменилась с гориз на вертикальную
+//     // если ориентация изменилась с гориз на вертикальную
 
-    //то начать функцию заглушки
+//     //то начать функцию заглушки
 
-    //когда заглушка отработала то начать загрузку страницы
+//     //когда заглушка отработала то начать загрузку страницы
 
 
-    // }
+//     }
 
 
 //Managing scripts loading for each page
