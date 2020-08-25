@@ -6,7 +6,7 @@ import Slide_d from "./Transitions/Slide_d"
 import Fade from "./Transitions/Fade";
 
 import PageLoader from "./pageLoader";
-// import gsap from "gsap/gsap-core";
+import gsap from "gsap/gsap-core";
 // import {
 //     SVG
 // } from "@svgdotjs/svg.js";
@@ -28,30 +28,50 @@ const H = new Highway.Core({
 var orientation;
 const show_zagl = new CustomEvent("show-zagl");
 const load_page=new CustomEvent("load-page");
+const hide_page=new CustomEvent("hide-page");
+const PL = new PageLoader;
+
+
 
 document.addEventListener("load-page",()=>{
-    
+    // console.log("animating load page");
+    PL.loadPage(window.location.pathname);
     
 });
-const Z = new Zaglushka();
+document.addEventListener("hide-page",()=>{
+    // console.log("animating load page");
+    PL.hidePage(window.location.pathname);
+    
+});
+
 // console.log(Z);
-const PL = new PageLoader;
+
 window.onload = function () {
     orientation=getOrientation();
-
-            document.dispatchEvent(show_zagl);
+    
+    // document.dispatchEvent(show_zagl);
     // console.log(Z);
     // check orintation
     if(orientation=="Landscape"){
-        var div=document.querySelector("#"+Z.div_id);
+        var div = document.querySelector("#load_zagl_div");
         if(div){
-            div.remove();
-        }  
-        Z.created=false; 
+            gsap.to(div,1,{opacity:0,onComplete:()=>{
+                div.remove();
+                document.dispatchEvent(load_page);
+            }}
+                )
+        }
+        else {
+            document.dispatchEvent(load_page);
+        }
+       
       }
+    if(orientation=="Portrait"){
+        document.dispatchEvent(show_zagl);
+    }
     //if landscape load page
     
-    PL.loadPage(document.location.pathname);
+   
 }
 
 //listen for updating links in gallery
@@ -61,7 +81,11 @@ document.addEventListener("update-links",function (e){
 });
 
 document.addEventListener("show-zagl",()=>{
-    console.log("I HAVE TO SHOW ZAGL");
+    console.log("I TRY TO SHOW ZAGL");
+    PL.hidePage(window.location.pathname);
+    const Z = new Zaglushka();
+    Z.show();
+    
 });
 //Managing link styles
 // Listen the `NAVIGATE_IN` event
@@ -92,14 +116,14 @@ H.on('NAVIGATE_END', ({
     // console.log("NAVIGATE END");
     // manageScripts(to);
     // PL.updateDirections(location.pathname);
-    PL.loadPage(location.pathname);
+    document.dispatchEvent(load_page);
     
 });
 H.on('NAVIGATE_IN', ({
 
     location
 }) => {
-    PL.hidePage(location.pathname);
+    document.dispatchEvent(hide_page);
 });
 
 function getOrientation(){
@@ -107,37 +131,52 @@ function getOrientation(){
     return orient;
 }
 
-//  window.onresize = function(){ 
+ window.onresize = function(){ 
 
-//     var new_orientation=getOrientation();
+    var new_orientation=getOrientation();
     
-//     //   проверка ориентации какая была
-//         if(new_orientation!=orientation)
-//         {
-//             orientation=new_orientation;
+    //   проверка ориентации какая была
+        if(new_orientation!=orientation)
+        {
+            orientation=new_orientation;
 
-//             // новая ориентация портрет
-//             if(new_orientation=="Portrait" && !Z.created){
-//                 Z.setSvgVertical();
-//               Z.show();    
-//             }
+            // новая ориентация портрет
+            if(new_orientation=="Portrait"){
+                create_zagl_bg(true);   
+                setTimeout(()=>{document.dispatchEvent(show_zagl)}, 2000);
+            }
 
-//             // новая ориентация лэндскейп
-//            if(new_orientation=="Landscape" && Z.created){
-//                Z.hide();
-//            }
+            // новая ориентация лэндскейп
+           if (orientation == "Landscape") {
+               var div = document.querySelector("#load_zagl_div");
+               var div2 = document.querySelector("#zagl_container");
+               if (div) {
+                   console.log("div1");
+                   gsap.to(div, 1, {
+                       opacity: 0,
+                       onComplete: () => {
+                           div.style.display="none";
+                           document.dispatchEvent(load_page);
+                       }
+                   })
+               } else{
+                   console.log("no div");
+                  document.dispatchEvent(load_page);
+               }
+
+           }
          
-//         }
+        }
 
 
-//     // если ориентация изменилась с гориз на вертикальную
+    // если ориентация изменилась с гориз на вертикальную
 
-//     //то начать функцию заглушки
+    //то начать функцию заглушки
 
-//     //когда заглушка отработала то начать загрузку страницы
+    //когда заглушка отработала то начать загрузку страницы
 
 
-//     }
+    }
 
 
 //Managing scripts loading for each page

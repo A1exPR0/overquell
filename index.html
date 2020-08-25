@@ -24,25 +24,42 @@
         <div class="noscriptmsg">
             <div>
                 У вас отключен JavaScript, который необходим для просмотра данного сайта.<br>
-                Более подробная информация доступна <a target="_blank" href="https://www.enable-javascript.com/ru/">по ссылке</a>
+                Более подробная информация доступна <a target="_blank" href="https://www.enable-javascript.com/ru/">по
+                    ссылке</a>
             </div>
         </div>
     </noscript>
     <script>
-        
-        if(window.innerHeight>window.innerWidth){
-            console.log("portait mode");
-            //show div
-            var div=document.createElement("div");
-            div.style.backgroundColor="black";
-            div.style.zIndex=999;
-            div.style.position="absolute";
-            div.style.width="100vw";
-            div.style.height="100vh";
-            div.id="load_zagl_div";
+        function create_zagl_bg(animate) {
+            console.log("creating zagl bg");
+            var div = document.createElement("div");
+            div.style.backgroundColor = "black";
+            div.style.zIndex = 999;
+            div.style.position = "absolute";
+            div.style.width = "100vw";
+            div.style.height = "100vh";
+            div.id = "load_zagl_div";
+            if(!animate){
             document.body.appendChild(div);
+            }
+            if(animate){
+                div.style.opacity=0;
+                document.body.appendChild(div);
+                div.animate([
+                // keyframes
+                { opacity:0 },
+                { opacity:1 }
+                ], {
+                // timing options
+                duration: 1000
+                });
+                div.style.opacity=1;
+            }
         }
-
+        if (window.innerHeight > window.innerWidth) {
+            create_zagl_bg(false);
+            console.log("portait mode");
+        }
     </script>
 
     <div class="header_logo">
@@ -123,19 +140,46 @@
         </ul>
     </nav>
 
-    <svg id="logo_for_zagl" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  viewBox="0 0 283.5 283.5" style="display: none;" xml:space="preserve">
-<style type="text/css">
- .st0{fill:#FFFFFF;}
-</style>
-<rect id="tail" x="187.5" y="161.3" transform="matrix(0.7071 0.7071 -0.7071 0.7071 183.2993 -91.2707)" class="st0" width="28.6" height="28.6"/>
-<g id="group_logo">
-<path id="half" class="st0" d="M154.7,185.8c31.6,0,57.2-25.6,57.2-57.2s-25.6-57.2-57.2-57.2v28.6c15.8,0,28.6,12.8,28.6,28.6
- s-12.8,28.6-28.6,28.6V185.8z"/>
-<path id="full" class="st0" d="M97.5,71.3c-31.6,0-57.2,25.6-57.2,57.2s25.6,57.2,57.2,57.2s57.2-25.6,57.2-57.2S129.1,71.3,97.5,71.3z
-  M97.5,157.1c-15.8,0-28.6-12.8-28.6-28.6s12.8-28.6,28.6-28.6s28.6,12.8,28.6,28.6S113.3,157.1,97.5,157.1z"/>
-</g>
-</svg>
+
+    <svg id="logo_for_zagl" version="1.1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px"
+        y="0px" viewBox="0 0 124 180.8" xml:space="preserve" style="display:none">;
+        <style type="text/css">
+            .st0 {
+                fill: #FFFFFF;
+            }
+        </style>
+
+        <rect id="tail" x="89.5" y="146.3" transform="matrix(0.7071 0.7071 -0.7071 0.7071 143.9388 -26.3691)"
+            class="st0"
+            width="28.6" height="28.6" />
+        <g id="group_logo">
+            <path class="st0" d="M0,114.4c0,31.6,25.6,57.2,57.2,57.2s57.2-25.6,57.2-57.2H85.8c0,15.8-12.8,28.6-28.6,28.6
+			s-28.6-12.8-28.6-28.6H0z" />
+            <path class="st0" d="M114.4,57.2C114.4,25.6,88.8,0,57.2,0S0,25.6,0,57.2s25.6,57.2,57.2,57.2S114.4,88.8,114.4,57.2z M28.6,57.2
+			c0-15.8,12.8-28.6,28.6-28.6s28.6,12.8,28.6,28.6S73,85.8,57.2,85.8S28.6,73,28.6,57.2z" />
+        </g>
+    </svg>
+
+ 
+    
+    <!-- <svg id="logo_for_zagl" version="1.1" id="Слой_1" xmlns="http://www.w3.org/2000/svg"
+        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 283.5 283.5" style="display: none;"
+        xml:space="preserve">
+        <style type="text/css">
+            .st0 {
+                fill: #FFFFFF;
+            }
+        </style>
+        <rect id="tail" x="187.5" y="161.3" transform="matrix(0.7071 0.7071 -0.7071 0.7071 183.2993 -91.2707)"
+            class="st0" width="28.6" height="28.6" />
+        <g id="group_logo">
+            <path id="half" class="st0" d="M154.7,185.8c31.6,0,57.2-25.6,57.2-57.2s-25.6-57.2-57.2-57.2v28.6c15.8,0,28.6,12.8,28.6,28.6
+ s-12.8,28.6-28.6,28.6V185.8z" />
+            <path id="full" class="st0" d="M97.5,71.3c-31.6,0-57.2,25.6-57.2,57.2s25.6,57.2,57.2,57.2s57.2-25.6,57.2-57.2S129.1,71.3,97.5,71.3z
+  M97.5,157.1c-15.8,0-28.6-12.8-28.6-28.6s12.8-28.6,28.6-28.6s28.6,12.8,28.6,28.6S113.3,157.1,97.5,157.1z" />
+        </g>
+    </svg> -->
 
     <script id="main-script" src="./js/index.js" data-no-reload></script>
     <script src="./node_modules/lightbox2/dist/js/lightbox-plus-jquery.js"></script>
@@ -143,4 +187,4 @@
 
 </body>
 
-</html> 
+</html>
