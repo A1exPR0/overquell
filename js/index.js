@@ -27,10 +27,11 @@ const H = new Highway.Core({
 
 var orientation;
 const show_zagl = new CustomEvent("show-zagl");
+const hide_zagl = new CustomEvent("hide-zagl");
 const load_page=new CustomEvent("load-page");
 const hide_page=new CustomEvent("hide-page");
 const PL = new PageLoader;
-
+const Z = new Zaglushka();
 
 
 document.addEventListener("load-page",()=>{
@@ -80,11 +81,18 @@ document.addEventListener("update-links",function (e){
     H.attach(e.detail.nodes);
 });
 
+
 document.addEventListener("show-zagl",()=>{
+    
     console.log("I TRY TO SHOW ZAGL");
     PL.hidePage(window.location.pathname);
-    const Z = new Zaglushka();
     Z.show();
+    
+});
+
+document.addEventListener("hide-zagl",()=>{
+    console.log("I TRY TO HIDE ZAGL");
+    Z.loading();
     
 });
 //Managing link styles
@@ -143,22 +151,23 @@ function getOrientation(){
             // новая ориентация портрет
             if(new_orientation=="Portrait"){
                 create_zagl_bg(true);   
-                setTimeout(()=>{document.dispatchEvent(show_zagl)}, 2000);
+                document.dispatchEvent(show_zagl);
             }
 
             // новая ориентация лэндскейп
            if (orientation == "Landscape") {
                var div = document.querySelector("#load_zagl_div");
-               var div2 = document.querySelector("#zagl_container");
+            //    var div2 = document.querySelector("#zagl_container");
                if (div) {
-                   console.log("div1");
-                   gsap.to(div, 1, {
-                       opacity: 0,
-                       onComplete: () => {
-                           div.style.display="none";
-                           document.dispatchEvent(load_page);
-                       }
-                   })
+                   console.log("start loading and hiding zagl");
+                    document.dispatchEvent(hide_zagl);
+                //    gsap.to(div, 1, {
+                //        opacity: 0,
+                //        onComplete: () => {
+                //            div.style.display="none";
+                //            document.dispatchEvent(load_page);
+                //        }
+                //    })
                } else{
                    console.log("no div");
                   document.dispatchEvent(load_page);

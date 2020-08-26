@@ -28,6 +28,44 @@
             </div>
         </div>
     </noscript>
+     <script>
+         function create_zagl_bg(animate) {
+             console.log("creating zagl bg");
+             var div = document.createElement("div");
+             div.style.backgroundColor = "black";
+             div.style.zIndex = 999;
+             div.style.position = "absolute";
+             div.style.width = "100vw";
+             div.style.height = "100vh";
+             div.id = "load_zagl_div";
+             if (!animate) {
+                 console.log("no animation");
+                 document.body.appendChild(div);
+             }
+             if (animate) {
+                 console.log("animating zagl bg");
+                 div.style.opacity = 0;
+                 document.body.appendChild(div);
+                 div.animate([
+                     // keyframes
+                     {
+                         opacity: 0
+                     },
+                     {
+                         opacity: 1
+                     }
+                 ], {
+                     // timing options
+                     duration: 1000
+                 });
+                 div.style.opacity = 1;
+             }
+         }
+         if (window.innerHeight > window.innerWidth) {
+             create_zagl_bg(false);
+             console.log("portait mode");
+         }
+     </script>
     <div class="header_logo">
         <a href="./">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 288.63 197.77">
@@ -41,8 +79,8 @@
     <nav class="top_nav">
         <ul>
             <li><a href="./index.html">Home</a></li>
-            <li><a href="./gallery.html" class="active">Music Video</a></li>
-            <li><a href="./commercial.html">Commercial</a></li>
+            <li><a href="./gallery.html">Music Video</a></li>
+            <li><a href="./commercial.html" class="active">Commercial</a></li>
             <li><a href="./live.html">Concert video</a></li>
         </ul>
     </nav>
