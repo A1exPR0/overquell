@@ -36,17 +36,21 @@ export default class Zaglushka {
             display: "block",
             "z-index": "1000",
             width: "100%",
-            "max-width": "400px",
-            "max-height": "60%",
-            margin: "20vh auto 20vh auto"
+            // "max-width": "400px",
+            "max-height": "30%",
+            // margin: "0 auto 0 auto",
+            top:"35%",
+            position:"absolute"
         });
         this.h3 = document.createElement("h3");
         this.h3.innerText = "Переверните устройство";
-        this.h3.style.fontSize = "6rem";
+        this.h3.style.fontSize = "4.5rem";
         this.h3.style.width = "100vw";
         this.h3.style.opacity = "1";
+        this.h3.style.textTransform = "uppercase";
+        this.h3.style.position = "absolute";
         this.h3.style.textAlign = "center";
-        this.h3.style.marginTop = "5vh";
+        this.h3.style.bottom = "20vh";
         this.div.appendChild(this.h3);
     }
 

@@ -11,12 +11,13 @@ $yellow:#F8BA01;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+
 }
 
 .noscriptmsg {
     display: flex;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     text-align: center;
     font-size: 1.5rem;
     line-height: 2rem;
@@ -41,6 +42,7 @@ body {
     background-color: $slightly_black;
     color: $slightly_white;
     overflow: hidden;
+    height: calc(100% + 1px);
 }
 
 nav {
@@ -78,6 +80,7 @@ nav {
                     transition: 0.2s;
                     transform: scale(1.1);
                 }
+             
             }
         }
     }
@@ -86,8 +89,8 @@ nav {
 .close_btn {
     position: absolute;
     z-index: 5;
-    padding: 1vw;
-    right: 0;
+    margin: 0.5vw;
+    right: 7vw;
 }
 
 .header_logo {
@@ -184,7 +187,7 @@ nav {
 
 main {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     position: absolute;
     top: 0;
     left: 0;
@@ -199,7 +202,7 @@ main {
 
         &::after {
             transition: 0.5;
-            top: -50vh;
+            top: -50%;
             left: -50vw;
             width: 200%;
             height: 200%;
@@ -219,11 +222,11 @@ main {
         //  filter:url("#my_filter");
 
         .page_name {
-            // line-height: 100vh;
+
             text-align: center;
             top: 0;
             position: absolute;
-            margin-top: 50vh;
+            top: 50%;
             color: $slightly_white;
             font-size: 6rem;
             z-index: 5;
@@ -250,8 +253,8 @@ main {
     height: 15vw;
     bottom: 0;
     background-color: $slightly_black;
-    display: flex;
-    transform: translate(0, 110%);
+    display: none;
+    // transform: translate(0, 110%);
 
     svg {
         margin: 10px;
@@ -273,6 +276,15 @@ main {
     }
 
     a {
+        text-decoration: none;
+        font-weight:800;
+        &:visited {
+            color: $slightly_white;
+
+        }
+    }
+
+    &>a {
         display: flex;
         text-decoration: none;
         color: $slightly_white;
@@ -322,9 +334,10 @@ main {
         object-fit: cover;
         object-position: center center;
         position: absolute;
-        &:not(#dont_move){
-            opacity:0;
-            margin-top:5vh;
+
+        &:not(#dont_move) {
+            opacity: 0;
+            margin-top: 5%;
         }
     }
 
@@ -342,7 +355,7 @@ main {
     justify-content: center;
     align-items: left;
     z-index: 2;
-    
+
 
     .logo {
         width: 19vw;
@@ -369,8 +382,8 @@ main {
     width: 7vw;
     z-index: 3;
     cursor: pointer;
-    opacity:0;
-    
+    opacity: 0;
+
 
 }
 
@@ -379,7 +392,7 @@ main {
     top: 0;
     left: -10vw;
     width: 120vw;
-    height: 100vh;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -430,12 +443,14 @@ main {
     grid-auto-flow: column;
     grid-template-columns: repeat(4, 30vw);
     grid-auto-columns: 30vw;
-    grid-template-rows: repeat(2, 20vh);
+    grid-template-rows: repeat(2, 20%);
     grid-row-gap: 10px;
     grid-column-gap: 10px;
     object-fit: cover;
     object-position: center;
-    margin: auto;
+    align-content: center;
+    height: 100%;
+    // margin: auto;
 
     .work_in_gallery {
         display: flex;
@@ -519,7 +534,7 @@ main {
     width: 100%;
     height: 10px;
     position: absolute;
-    top: calc(50vh - 5px);
+    top: calc(50% - 5px);
     left: -100%;
     background-color: $yellow;
     z-index: 999;
@@ -528,7 +543,7 @@ main {
 
 .grid_loader {
     display: grid;
-    grid-template-rows: repeat(9, 11.2vh);
+    grid-template-rows: repeat(9, 11.2%);
     grid-template-columns: repeat(16, 6.25vw);
     // mix-blend-mode: screen;
     z-index: 9;
@@ -541,7 +556,7 @@ main {
         // transform:skewX(30deg);
         background-color: $yellow;
         // border: 5px solid black;
-        // border-radius: 5vh;
+        // border-radius: 5%;
     }
 }
 
@@ -557,7 +572,7 @@ main {
 
 .slide_loader_vert {
     width: 30px;
-    height: 100vh;
+    height: 100%;
     background-color: $slightly_white;
     position: absolute;
     left: -20px;
@@ -568,8 +583,9 @@ main {
 //WORK PAGE
 .back_names {
     width: 100vw;
-    height: 70vh;
-    margin: 15vh 0;
+    height: 70%;
+    position: absolute;
+    top: 15%;
     opacity: 0;
     font-size: 2rem;
     line-height: 2.5rem;
@@ -620,7 +636,7 @@ main {
     position: absolute;
     width: 100vw;
     height: 100%;
-    z-index: 3;
+    z-index: 2;
     top: 0;
     right: 0;
     background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
@@ -628,14 +644,12 @@ main {
 }
 
 section .work {
-    transition: 0.5s;
+    
     position: absolute;
     top: 0;
-    margin: 30vh 0; // Доделать выраниене по центру! учитывать заголовок
+    top: 30%; 
     width: 50vw;
-    // min-width: 400px;
-    height: 40vh;
-    // min-height: 200px;
+    height: 40%;
     left: 5vw;
     z-index: 3;
 
@@ -646,7 +660,6 @@ section .work {
         z-index: 5;
         text-align: left;
         font-size: 3vw;
-        transition: 0.5s;
         opacity: 0;
     }
 
@@ -657,7 +670,6 @@ section .work {
         z-index: 5;
         text-align: right;
         font-size: 3vw;
-        transition: 0.5s;
         opacity: 0;
     }
 
@@ -667,7 +679,6 @@ section .work {
         stroke-width: 4px;
         width: 5vw;
         height: 5vw;
-        transition: 0.5s;
     }
 
     .work_cover {
@@ -677,60 +688,20 @@ section .work {
         height: 100%;
         overflow: hidden;
 
-        &::after {
+        .overlay {
             position: absolute;
             z-index: 2;
             width: 100%;
             height: 100%;
             display: block;
-            content: "";
             background-color: rgba($color: #000000, $alpha: 0.4);
-            transition: 0.5s;
         }
 
         img {
             position: relative;
-            // width: 100%;
             object-fit: cover;
             height: auto;
             width: 100%;
-            transition: 0.5s;
-        }
-    }
-
-    &:hover {
-        transition: 0.5s;
-
-        .play_btn {
-            fill: white;
-            stroke: none;
-            transition: 0.5s;
-        }
-
-        .artist {
-            color: transparent;
-            transition: 0.5s;
-            transform: translate(0, -150%);
-            -webkit-text-stroke: 1.5px $slightly_white;
-        }
-
-        .project {
-            color: transparent;
-            transition: 0.5s;
-            transform: translate(0, 150%);
-            -webkit-text-stroke: 1.5px $slightly_white;
-        }
-
-        .work_cover {
-            img {
-                transform: scale(1.3);
-                transition: 0.5s;
-            }
-
-            &::after {
-                transition: 0.5s;
-                background-color: rgba($color: #000000, $alpha: 0.1);
-            }
         }
     }
 }
@@ -739,14 +710,12 @@ section .work {
     position: absolute;
     top: 0;
     width: 40vw;
-    // min-width: 400px;
-    height: 60vh;
-    margin: 20vh 2vw 20vh 10vw;
-    // min-height: 200px;
-    // padding:10px 20px;
+    height: 60%;
+    top: 20%;
+    margin: 0 2vw 0 10vw;
     right: 0;
     z-index: 3;
-    
+
 
     /* width */
     ::-webkit-scrollbar {
@@ -861,7 +830,7 @@ section .work {
         overflow: scroll;
         height: 80%;
         overflow-x: hidden;
-        margin:5% 0;
+        margin: 5% 0;
 
 
         .credits_grid {
@@ -899,40 +868,48 @@ section .work {
     flex-direction: column;
     text-align: center;
     z-index: 5;
-    position: relative;
+    position: absolute;
     top: 0;
     left: 0;
     justify-content: center;
+    height: 100%;
+    margin: 0 auto;
+    width: 100%;
 
     img {
         opacity: 0.1;
-        height: 60vh;
+        height: 60%;
         position: absolute;
-        top: 20vh;
+        top: 20%;
         left: 0;
     }
 
     h2 {
         font-size: 2.5rem;
         text-transform: uppercase;
-        margin-top: 15vh;
+        top: 12%;
+        margin: 0 auto;
+        width: 100%;
+        position: absolute;
 
     }
 
     p {
         font-size: 1rem;
         text-transform: uppercase;
-        margin: 3vh auto 0 auto;
+        margin: 4% auto 0 auto;
         width: 35vw;
         line-height: 2rem;
         opacity: 0.6;
+        // top:20%;
+        // position: absolute;
     }
 
     #vacancies_form {
         display: flex;
         position: relative;
         width: 65vw;
-        margin: 2vh auto 0 auto;
+        margin: 0 auto 0 auto;
         justify-content: space-around;
 
         .wrapper {
@@ -989,7 +966,7 @@ section .work {
             background-color: transparent;
             border: 0.01vw $slightly_white solid;
             width: 100%;
-            margin: 1vh 0;
+            margin: 1% 0;
             height: 2.5rem;
             color: $slightly_white;
             font-size: 1.1rem;
@@ -998,16 +975,18 @@ section .work {
         }
 
         input:focus,
-        textarea:focus {
-            outline: $yellow auto 1px;
-            outline-offset: 1px;
+        textarea:focus,
+        input:active,
+        textarea:active{
+            outline: $yellow solid 2px;
+            outline-offset: 0px;
         }
 
         textarea {
             background-color: transparent;
             border: 0.01vw $slightly_white solid;
             width: 100%;
-            margin: 1vh 0;
+            margin: 1% 0;
             height: 100%;
             color: $slightly_white;
             font-size: 1.1rem;
@@ -1028,7 +1007,7 @@ section .work {
 //About
 .about {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 
     #team_container {
         display: block;
@@ -1043,17 +1022,18 @@ section .work {
             width: 100vw;
             position: absolute;
             z-index: 3;
-            height: 20vh;
+            height: 20%;
             top: 0;
             left: 0;
-            margin:0 0 auto 0;
+            margin: 0 0 auto 0;
         }
-        .gradient_fade:last-of-type{
+
+        .gradient_fade:last-of-type {
             background-image: linear-gradient(to bottom, rgba(25, 25, 25, 0), #191919);
             width: 100vw;
             position: absolute;
             z-index: 3;
-            height: 20vh;
+            height: 20%;
             bottom: 0;
             left: 0;
             margin: auto 0 0 0;
@@ -1062,7 +1042,7 @@ section .work {
 
     .cover_container {
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         display: flex;
 
         &::after {
@@ -1079,7 +1059,7 @@ section .work {
             // filter: url("#yellow");
 
             width: 100vw;
-            height: 100vh;
+            height: 100%;
             object-fit: cover;
             position: absolute;
 
@@ -1095,11 +1075,14 @@ section .work {
         // top:0;
         bottom: 0;
         left: 0;
-        text-decoration:none;
+        text-decoration: none;
+        color: $slightly_white;
+
         // transition:0.2s transform;
-        &:visited{
+        &:visited {
             color: $slightly_white;
         }
+
         // &:hover{
         //     transform:scale(1.1);
         //     transition:0.2s transform ;
@@ -1117,31 +1100,32 @@ section .work {
             font-size: 1.5rem;
             font-weight: 200;
         }
-        p{
-            display:none;
-            position:absolute;
-            width:40vw;
-            font-size:1.5rem;
+
+        p {
+            display: none;
+            position: absolute;
+            width: 35vw;
+            font-size: 1rem;
             opacity: 0;
         }
 
     }
 
     // #pavel {
-    //     // margin-top: 55vh;
-    //     // margin-bottom: 35vh;
+    //     // margin-top: 55%;
+    //     // margin-bottom: 35%;
     //     // margin-left: 77vw;
     // }
 
     // #gregory {
-    //     // margin-top: 35vh;
-    //     // margin-bottom:50vh;
+    //     // margin-top: 35%;
+    //     // margin-bottom:50%;
     //     // margin-left: 16vw;
     // }
 
     // #vladimir {
-    //     // margin-top: 67vh;
-    //     // margin-bottom: 25vh;
+    //     // margin-top: 67%;
+    //     // margin-bottom: 25%;
     //     // margin-left: 43vw;
     // }
 
@@ -1177,9 +1161,10 @@ section .work {
     }
 
     #team_btn {
-        top: 15vh;
-        left: 10vw;
+        top: 15%;
+        right: 10vw;
         bottom: unset;
+        text-align: right;
     }
 
     .clients_container {
@@ -1187,7 +1172,7 @@ section .work {
         top: 0;
         left: 0;
         width: 100vw;
-        height: 100vh;
+        height: 100%;
         z-index: 5;
         display: flex;
         flex-direction: column;
@@ -1202,7 +1187,7 @@ section .work {
             text-transform: uppercase;
             z-index: 3;
             text-align: center;
-            top: 25vh;
+            top: 25%;
             position: absolute;
             margin: auto;
             align-self: center;
@@ -1213,8 +1198,8 @@ section .work {
             display: flex;
             width: 70vw;
             position: absolute;
-            top: 40vh;
-            // margin: 30vh 15vw;
+            top: 40%;
+            // margin: 30% 15vw;
             flex-wrap: wrap;
             // justify-content: center;
             // align-content:center;
@@ -1226,7 +1211,7 @@ section .work {
                 max-height: 80px;
                 margin: auto;
                 width: 40vw;
-                // height:30vh;
+                // height:30%;
                 opacity: 0.9;
                 transition: 0.2s;
 
@@ -1250,5 +1235,5 @@ section .work {
 
 svg#yellow_filter {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
