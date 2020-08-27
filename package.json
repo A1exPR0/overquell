@@ -21,6 +21,7 @@
     "t": "^0.5.1"
   },
   "devDependencies": {
+    "cssnano": "^4.1.10",
     "sass": "^1.26.10"
   }
 }
